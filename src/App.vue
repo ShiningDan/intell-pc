@@ -24,6 +24,7 @@ export default {
 #app {
   background-color: #f8f8f8;
   color: #171717;
+  width: 1366px;
   font-family: Circular, 'Hiragino Sans GB', '华文细黑', 'STHeiti', '微软雅黑', 'Microsoft YaHei',
     SimHei, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
