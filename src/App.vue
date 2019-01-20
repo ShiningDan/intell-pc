@@ -1,40 +1,36 @@
 <template>
-  <el-container id="app">
-    <el-header class="app-header">这里是标题</el-header>
-    <el-main class="app-main">
-      <el-container class="app-main-container">
-        <el-aside width="200px"><v-header></v-header></el-aside>
-        <router-view></router-view>
-      </el-container>
-    </el-main>
-    <el-footer class="app-footer">这里是底栏</el-footer>
-  </el-container>
+  <div id="app">
+    <div class="app-header">
+      <v-header-top></v-header-top>
+      <v-header></v-header>
+    </div>
+    <div class="app-main"><router-view></router-view></div>
+  </div>
 </template>
 
 <script>
 import VHeader from '@/components/header/index.vue'
+import VHeaderTop from '@/components/header-top/index.vue'
 
 export default {
   components: {
     VHeader,
+    VHeaderTop,
   },
 }
 </script>
 
-<style lang="scss" scoped>
-.app-header,
-.app-footer {
-  text-align: center;
-  padding: 10px;
-  font-size: 20px;
+<style lang="scss">
+#app {
+  background-color: #f8f8f8;
+  color: #171717;
+  font-family: Circular, 'Hiragino Sans GB', '华文细黑', 'STHeiti', '微软雅黑', 'Microsoft YaHei',
+    SimHei, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.app-header {
+  margin-bottom: 20px;
 }
 .app-main {
-  height: 100%;
-  .app-main-container {
-    height: inherit;
-  }
-}
-.el-main.app-main {
   padding: 0px;
 }
 </style>

@@ -1,63 +1,78 @@
 <template>
-  <el-menu
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
-    class="v-header"
-    @select="selectTab"
-  >
-    <el-menu-item v-for="(item, index) in menuItems" :key="index" :index="String(index)">
-      <template slot="title">
-        <i :class="`el-icon-${item.icon}`"></i>
-        <span slot="title">{{ item.name }}</span>
-      </template>
-    </el-menu-item>
-  </el-menu>
+  <el-card class="x-header-main" :body-style="{ padding: '0px' }">
+    <div class="x-header-logo" @click="selectTab('/')">
+      <img src="@/assets/home/logo.png" alt="Logo" width="200" height="80" />
+    </div>
+    <div class="x-header-left x-header-tab" @click="selectTab('/')">首页</div>
+    <div class="x-header-left x-header-tab" @click="selectTab('/loan')">贷款</div>
+    <div class="x-header-left x-header-tab" @click="selectTab('/insurance')">保险</div>
+    <div class="x-header-left x-header-tab" @click="selectTab('/creditCard')">信用卡</div>
+    <div class="x-header-right x-header-tab">注册</div>
+    <div class="x-header-right x-header-tab">登录</div>
+    <div class="x-header-search">
+      <el-input placeholder="搜索" v-model="search">
+        <el-button slot="append" icon="el-icon-search"></el-button>
+      </el-input>
+    </div>
+  </el-card>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      menuItems: [
-        {
-          name: '首页',
-          icon: 'location',
-          path: '/home',
-        },
-        {
-          name: '对话平台',
-          icon: 'menu',
-          path: '/dialog',
-        },
-        {
-          name: '留言记录',
-          icon: 'edit',
-          path: '/message',
-        },
-        {
-          name: '历史记录',
-          icon: 'document',
-          path: '/history',
-        },
-        {
-          name: '设置',
-          icon: 'setting',
-          path: '/setting',
-        },
-      ],
+      search: '',
     }
   },
   methods: {
-    selectTab(index) {
-      this.$router.replace(this.menuItems[index].path)
+    onSearch() {
+      console.log(this.search)
+    },
+    selectTab(path) {
+      this.$router.replace(path)
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.v-header {
-  min-height: 100%;
+@import '@/common/_variable.scss';
+.x-header-main {
+  width: 100%;
+  height: 80px;
+  font-size: 18px;
+  line-height: 80px;
+  background-color: #fff;
+  color: #171717;
+  text-align: center;
+  vertical-align: middle;
+  .x-header-tab {
+    cursor: pointer;
+    &:hover {
+      background-color: #f8f8f8;
+    }
+  }
+  .x-header-logo {
+    background-color: $theme-color;
+    width: 200px;
+    float: left;
+    color: #fff;
+    cursor: pointer;
+  }
+  .x-header-search {
+    float: right;
+    height: 40px;
+    .el-input {
+      width: 260px;
+    }
+  }
+  .x-header-left {
+    width: 100px;
+    float: left;
+  }
+  .x-header-right {
+    width: 100px;
+    float: right;
+  }
 }
 </style>
