@@ -15,6 +15,11 @@ import {
   Button,
   Tag,
   Notification,
+  Card,
+  Carousel,
+  CarouselItem,
+  Select,
+  Option,
 } from 'element-ui'
 
 Vue.use(Container)
@@ -30,5 +35,10 @@ Vue.use(FormItem)
 Vue.use(Input)
 Vue.use(Button)
 Vue.use(Tag)
+Vue.use(Card)
+Vue.use(Carousel)
+Vue.use(CarouselItem)
+Vue.use(Select)
+Vue.use(Option)
 
 Vue.prototype.$notify = Notification
