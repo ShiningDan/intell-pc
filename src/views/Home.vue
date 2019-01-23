@@ -101,26 +101,26 @@ export default {
     async getRecommends() {
       return [
         {
-          id: '1',
+          id: 1,
           img: '@/assets/home/recomm.png',
           title: '驯龙炮手·崔斯塔娜',
           content:
             '想要比迅捷蟹更快造成伤害吗？\n急速射击会炮喷射半自动龙炎火球，\n把坏蛋都烤熟甚至烤焦。',
         },
         {
-          id: '2',
+          id: 2,
           img: '@/assets/home/recomm.png',
           title: '约德尔国队长·提莫',
           content: '提莫回去默默地看了下每分钟的死亡次数，\n毅然接下了这个重担。',
         },
         {
-          id: '3',
+          id: 3,
           img: '@/assets/home/recomm.png',
           title: '大发明家·黑默丁格',
           content: '由于大发明家黑默丁格头比较大的特征，\n被人们外号称作“大头”。',
         },
         {
-          id: '4',
+          id: 4,
           img: '@/assets/home/recomm.png',
           title: '邪恶小法师·维迦',
           content:

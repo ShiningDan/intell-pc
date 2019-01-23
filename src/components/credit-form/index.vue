@@ -2,7 +2,7 @@
   <div class="x-credit-form">
     <div class="x-credit-form-title">快速匹配适合您的信用卡</div>
     <el-form class="x-credit-form-content">
-      <el-form-item class="x-credit-form-item" >
+      <el-form-item class="x-credit-form-item">
         <el-select v-model="income" placeholder="月收入范围">
           <el-option
             v-for="item in incomes"
@@ -27,14 +27,14 @@
       </el-form-item>
       <el-form-item class="x-credit-form-item">
         <el-col :span="12">
-        <el-input v-model="phone" placeholder="请输入验证码"></el-input>
+          <el-input v-model="phone" placeholder="请输入验证码"></el-input>
         </el-col>
         <el-col :span="12">
-        <el-button class="x-credit-form-btn-icode" >获取验证码</el-button>
+          <el-button class="x-credit-form-btn-icode">获取验证码</el-button>
         </el-col>
       </el-form-item>
       <el-form-item class="x-credit-form-item">
-        <el-button class="x-credit-form-btn">立即申请</el-button>
+        <el-button class="x-credit-form-btn">立即匹配</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -47,38 +47,38 @@ export default {
       income: '',
       incomes: [
         {
-          value: 'salaryLoan',
+          value: 'wagesBlow10k',
           label: '10k以下',
         },
         {
-          value: 'houseLoan',
+          value: 'wagesBlow20k',
           label: '10k~20k',
         },
         {
-          value: 'fundLoan',
+          value: 'wagesBlow30k',
           label: '20~30k',
         },
         {
-          value: 'carLoan',
+          value: 'wagesAbove30k',
           label: '30k以上',
         },
       ],
       quota: '',
       quotas: [
         {
-          value: 'salaryLoan',
+          value: 'quota2w',
           label: '2w以下',
         },
         {
-          value: 'houseLoan',
+          value: 'quota5w',
           label: '2w~5w',
         },
         {
-          value: 'fundLoan',
+          value: 'quota10w',
           label: '5w~10w',
         },
         {
-          value: 'carLoan',
+          value: 'quotaAbove10w',
           label: '10w以上',
         },
       ],
@@ -94,7 +94,6 @@ export default {
 .x-credit-form {
   width: 300px;
   height: 400px;
-  border: 0px solid #e91212;
   border-radius: 0px 10px 10px 0px;
   // background-color: aqua;
   .x-credit-form-title {
@@ -120,13 +119,13 @@ export default {
   .x-credit-form-item {
     margin-top: 20px;
     width: 240px;
-   .x-credit-form-btn-icode{
-    width: 120px;
-    height: 40px;
-    margin-left: 0px;
-    font-size: 16px;
-    background-color: #11974f;
-    color: #fff;
+    .x-credit-form-btn-icode {
+      width: 120px;
+      height: 40px;
+      margin-left: 0px;
+      font-size: 16px;
+      background-color: #11974f;
+      color: #fff;
     }
   }
 }

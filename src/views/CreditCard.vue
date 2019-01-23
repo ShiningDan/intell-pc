@@ -15,15 +15,15 @@
       </template>
     </v-banner>
     <div class="x-views-credit-adv">
-    <v-home-recomm-title content="我们的优势"></v-home-recomm-title>
-    <v-credit-advantage></v-credit-advantage>
+      <v-home-recomm-title content="我们的优势"></v-home-recomm-title>
+      <v-credit-advantage></v-credit-advantage>
     </div>
     <div class="x-views-credit-discount">
-        <div  class="x-views-credit-discount-title">
-          <v-sub-title>优惠活动</v-sub-title>
-          <v-show-more style="float: right"></v-show-more>
-        </div>
-        <v-credit-discount></v-credit-discount>
+      <div class="x-views-credit-discount-title">
+        <v-sub-title>优惠活动</v-sub-title>
+        <v-show-more style="float: right"></v-show-more>
+      </div>
+      <v-credit-discount></v-credit-discount>
     </div>
     <div class="x-views-credit-recomm x-views-credit-section" v-if="recommends.length > 0">
       <div>
@@ -47,7 +47,6 @@ import VBanner from '@/components/banner/index.vue'
 import VCreditAdvantage from '@/components/credit-advantage/index.vue'
 import VCreditDiscount from '@/components/credit-discount/index.vue'
 import VCreditForm from '@/components/credit-form/index.vue'
-import VCreditRecommend from '@/components/credit-recommend/index.vue'
 import VHomeRecommTitle from '@/components/home-recomm-title/index.vue'
 import VHomeRecommTab from '@/components/home-recomm-tab/index.vue'
 import VSubTitle from '@/components/sub-title/index.vue'
@@ -59,7 +58,6 @@ export default {
     VCreditAdvantage,
     VCreditForm,
     VCreditDiscount,
-    VCreditRecommend,
     VHomeRecommTitle,
     VHomeRecommTab,
     VSubTitle,
@@ -81,30 +79,31 @@ export default {
     async getRecommends() {
       return [
         {
-          id: '1',
+          id: 1,
           img: '@/assets/credit/card1.png',
           title: '苏宁易购联名卡',
           content:
             '白金卡，免年费，免版面费\n新客户核卡后60天内任意合格消费，获一年\n期苏宁SUPER VIP会员',
         },
         {
-          id: '2',
+          id: 2,
           img: '@/assets/credit/card2.png',
           title: '浦发腾讯联名卡',
-          content: '白金卡，免年费，免版面费\n新户核卡后6个自然月内使用微信支付累计享\n3倍积分，每月封顶20000积分',
+          content:
+            '白金卡，免年费，免版面费\n新户核卡后6个自然月内使用微信支付累计享\n3倍积分，每月封顶20000积分',
         },
         {
-          id: '3',
+          id: 3,
           img: '@/assets/credit/card3.png',
           title: 'VISA白金卡简约版',
-          content: '白金卡，免年费，免版面费\n指定五星级酒店自助餐买一赠一\n指定酒店免费双早/入住升级礼遇',
+          content:
+            '白金卡，免年费，免版面费\n指定五星级酒店自助餐买一赠一\n指定酒店免费双早/入住升级礼遇',
         },
         {
-          id: '4',
+          id: 4,
           img: '@/assets/credit/card4.png',
           title: '中信银行优酷联名卡',
-          content:
-            '白金卡，免年费，免版面费\n新用户刷卡月月领VIP会员\n9元买电影票，9积分兑星巴克',
+          content: '白金卡，免年费，免版面费\n新用户刷卡月月领VIP会员\n9元买电影票，9积分兑星巴克',
         },
       ]
     },
@@ -117,12 +116,12 @@ export default {
   .x-views-credit-banner {
     width: 100%;
   }
-  .x-views-credit-adv{
+  .x-views-credit-adv {
     width: 100%;
     // height: 340;
     padding: 40px 0px 40px 0px;
   }
-  .x-views-credit-discount{
+  .x-views-credit-discount {
     width: 100%;
     height: 360px;
     background-color: #f8f8f8;
@@ -139,8 +138,6 @@ export default {
       margin-top: 20px;
     }
   }
-
-
 }
 // 这里是轮播图的测试样式，换成图片后可以删除
 .x-views-credit-banner-carousel-item {
