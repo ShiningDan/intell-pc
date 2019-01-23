@@ -34,7 +34,7 @@
         </el-col>
       </el-form-item>
       <el-form-item class="x-credit-form-item">
-        <el-button class="x-credit-form-btn">立即匹配</el-button>
+        <el-button class="x-credit-form-btn" @click="selectTab('/creditCardMatch')">立即匹配</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -85,6 +85,11 @@ export default {
       name: '',
       phone: '',
     }
+  },
+  methods: {
+    selectTab(path) {
+      this.$router.replace(path)
+    },
   },
 }
 </script>

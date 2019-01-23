@@ -13,7 +13,7 @@
           <p>卑斯20寸拉杆箱或OralB牙刷+乐扣保温</p>
           <p>杯盒套装</p>
         </div>
-        <button class="btn">立即参加</button>
+        <el-button class="btn">立即参加</el-button>
       </div>
     </div>
     <div class="x-credit-discount">
@@ -30,7 +30,7 @@
           <p>无理由退货100%全额赔付，穿过、洗过、</p>
           <p>有无吊牌均可退。</p>
         </div>
-        <button class="btn">立即参加</button>
+        <el-button class="btn">立即参加</el-button>
       </div>
     </div>
   </div>
@@ -79,6 +79,7 @@
       height: 40px;
       font-size: 16px;
       margin-left: 60px;
+      color: #fff;
       background-color: $theme-color;
     }
   }

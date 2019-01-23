@@ -80,28 +80,28 @@ export default {
       return [
         {
           id: 1,
-          img: '@/assets/credit/card1.png',
+          img: require('@/assets/credit/card1.png'),
           title: '苏宁易购联名卡',
           content:
             '白金卡，免年费，免版面费\n新客户核卡后60天内任意合格消费，获一年\n期苏宁SUPER VIP会员',
         },
         {
           id: 2,
-          img: '@/assets/credit/card2.png',
+          img: require('@/assets/credit/card2.png'),
           title: '浦发腾讯联名卡',
           content:
             '白金卡，免年费，免版面费\n新户核卡后6个自然月内使用微信支付累计享\n3倍积分，每月封顶20000积分',
         },
         {
           id: 3,
-          img: '@/assets/credit/card3.png',
+          img: require('@/assets/credit/card3.png'),
           title: 'VISA白金卡简约版',
           content:
             '白金卡，免年费，免版面费\n指定五星级酒店自助餐买一赠一\n指定酒店免费双早/入住升级礼遇',
         },
         {
           id: 4,
-          img: '@/assets/credit/card4.png',
+          img: require('@/assets/credit/card4.png'),
           title: '中信银行优酷联名卡',
           content: '白金卡，免年费，免版面费\n新用户刷卡月月领VIP会员\n9元买电影票，9积分兑星巴克',
         },

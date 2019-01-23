@@ -32,5 +32,10 @@ export default new Router({
       name: 'creditCard',
       component: () => import(/* webpackChunkName: "about" */ './views/CreditCard.vue'),
     },
+    {
+      path: '/creditCardMatch',
+      name: 'creditCardMatch',
+      component: () => import(/* webpackChunkName: "about" */ './views/CreditCardMatch.vue'),
+    },
   ],
 })
