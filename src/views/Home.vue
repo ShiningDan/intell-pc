@@ -1,6 +1,6 @@
 <template>
   <div class="x-views-home-main">
-    <div class="x-views-home-container-bgfff">
+    <div class="x-views-home-container-bg-light">
       <v-banner class="x-views-home-banner">
         <template slot="carousel">
           <el-carousel height="400px">
@@ -18,11 +18,15 @@
       <div class="x-views-home-recomm x-views-home-section" v-if="recommends.length > 0">
         <v-home-recomm-title content="特别推荐"></v-home-recomm-title>
         <div class="x-views-home-recomm-main">
-          <v-home-recomm-tab v-for="recommend in recommends" :key="recommend.id" :data="recommend"></v-home-recomm-tab>
+          <v-home-recomm-tab
+            v-for="recommend in recommends"
+            :key="recommend.id"
+            :data="recommend"
+          ></v-home-recomm-tab>
         </div>
       </div>
     </div>
-    <div class="x-views-home-container-bg000">
+    <div class="x-views-home-container-bg-dark">
       <div class="x-views-home-loan x-views-home-section" v-if="loans.length > 0">
         <div>
           <v-sub-title>贷款</v-sub-title>
@@ -34,49 +38,48 @@
         </div>
       </div>
     </div>
-    <div class="x-views-home-container-bgfff">
+    <div class="x-views-home-container-bg-light">
       <div class="x-views-home-insurance x-views-home-section" v-if="insuracnes.length > 0">
         <div>
           <v-sub-title>保险</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
         </div>
         <div class="x-views-home-insurance-main">
-          <div>
-            <v-home-insurance-tab-big :data="insuracnes[0]"></v-home-insurance-tab-big>
-          </div>
+          <div><v-home-insurance-tab-big :data="insuracnes[0]"></v-home-insurance-tab-big></div>
           <div>
             <v-home-insurance-tab-small :data="insuracnes[1]"></v-home-insurance-tab-small>
-            <v-home-insurance-tab-small style="margin-top: 20px" :data="insuracnes[2]"></v-home-insurance-tab-small>
+            <v-home-insurance-tab-small
+              style="margin-top: 20px"
+              :data="insuracnes[2]"
+            ></v-home-insurance-tab-small>
           </div>
         </div>
       </div>
     </div>
-    <div class="x-views-home-container-bg000">
+    <div class="x-views-home-container-bg-dark">
       <div class="x-views-home-credit x-views-home-section" v-if="credits.length > 0">
         <div>
           <v-sub-title>信用卡</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
         </div>
         <div class="x-views-home-credit-main">
-          <v-home-recomm-tab v-for="credit in credits" :key="credit.id" :data="credit"></v-home-recomm-tab>
+          <v-home-recomm-tab
+            v-for="credit in credits"
+            :key="credit.id"
+            :data="credit"
+          ></v-home-recomm-tab>
           <v-credit-compute></v-credit-compute>
         </div>
       </div>
     </div>
-    <div class="x-views-home-container-bgfff">
+    <div class="x-views-home-container-bg-light">
       <div class="x-views-home-partner x-views-home-section">
-        <div>
-          <v-sub-title>合作机构</v-sub-title>
-        </div>
-        <div class="x-views-home-partner-main">
-          <v-partner :data="partners"></v-partner>
-        </div>
+        <div><v-sub-title>合作机构</v-sub-title></div>
+        <div class="x-views-home-partner-main"><v-partner :data="partners"></v-partner></div>
       </div>
     </div>
-    <div class="x-views-home-container-bg000">
-      <div class="x-views-home-section">
-        <v-footer></v-footer>
-      </div>
+    <div class="x-views-home-container-bg-dark">
+      <div class="x-views-home-section"><v-footer></v-footer></div>
     </div>
   </div>
 </template>
@@ -90,11 +93,11 @@ import VHomeRecommTab from '@/components/home-recomm-tab/index.vue'
 import VSubTitle from '@/components/sub-title/index.vue'
 import VShowMore from '@/components/show-more/index.vue'
 import VLoanTab from '@/components/loan-tab/index.vue'
-import VPartner from '@/components/partner/index.vue'
 import VLoanCompute from '@/components/loan-compute/index.vue'
 import VCreditCompute from '@/components/credit-compute/index.vue'
 import VHomeInsuranceTabBig from '@/components/home-insurance-tab-big/index.vue'
 import VHomeInsuranceTabSmall from '@/components/home-insurance-tab-small/index.vue'
+import VPartner from '@/components/partner/index.vue'
 import VFooter from '@/components/footer/index.vue'
 
 export default {
@@ -141,26 +144,26 @@ export default {
     async getRecommends() {
       return [
         {
-          id: '1',
-          img: '@/assets/home/recomm.png',
+          id: 1,
+          img: '@/assets/home/fff.png',
           title: '驯龙炮手·崔斯塔娜',
           content:
             '想要比迅捷蟹更快造成伤害吗？\n急速射击会炮喷射半自动龙炎火球，\n把坏蛋都烤熟甚至烤焦。',
         },
         {
-          id: '2',
+          id: 2,
           img: '@/assets/home/recomm.png',
           title: '约德尔国队长·提莫',
           content: '提莫回去默默地看了下每分钟的死亡次数，\n毅然接下了这个重担。',
         },
         {
-          id: '3',
+          id: 3,
           img: '@/assets/home/recomm.png',
           title: '大发明家·黑默丁格',
           content: '由于大发明家黑默丁格头比较大的特征，\n被人们外号称作“大头”。',
         },
         {
-          id: '4',
+          id: 4,
           img: '@/assets/home/recomm.png',
           title: '邪恶小法师·维迦',
           content:
@@ -171,21 +174,21 @@ export default {
     async getCredits() {
       return [
         {
-          id: '1',
+          id: 1,
           img: '@/assets/home/recomm.png',
           title: '苏宁易购联名卡',
           content:
             '白金卡，免年费，免版面费\n新客户核卡后60天内任意合格消费，获一年期苏宁SUPER VIP会员',
         },
         {
-          id: '2',
+          id: 2,
           img: '@/assets/home/recomm.png',
           title: '浦发腾讯联名卡',
           content:
             '白金卡，免年费\n新户核卡后6个自然月内使用微信支付累计享3倍积分，每月封顶20000积分',
         },
         {
-          id: '3',
+          id: 3,
           img: '@/assets/home/recomm.png',
           title: 'VISA白金卡简约版',
           content: '白金卡，免年费\n指定五星级酒店自助餐买一赠一指定酒店免费双早/入住升级礼遇',
@@ -219,32 +222,32 @@ export default {
         {
           id: 1,
           title: '1',
-          url: 'https://dummyimage.com/160x60/000/fff',
+          url: require('@/assets/home/fff.png'),
         },
         {
           id: 2,
           title: '2',
-          url: 'https://dummyimage.com/160x60/000/fff',
+          url: require('@/assets/home/fff.png'),
         },
         {
           id: 3,
           title: '3',
-          url: 'https://dummyimage.com/160x60/000/fff',
+          url: require('@/assets/home/fff.png'),
         },
         {
           id: 4,
           title: '4',
-          url: 'https://dummyimage.com/160x60/000/fff',
+          url: require('@/assets/home/fff.png'),
         },
         {
           id: 5,
           title: '5',
-          url: 'https://dummyimage.com/160x60/000/fff',
+          url: require('@/assets/home/fff.png'),
         },
         {
           id: 6,
           title: '6',
-          url: 'https://dummyimage.com/160x60/000/fff',
+          url: require('@/assets/home/fff.png'),
         },
       ]
     },
@@ -252,6 +255,7 @@ export default {
       return [
         {
           id: 1,
+          url: require('@/assets/home/home-insurance-big.png'),
           title: '“乐游人生”境外旅行救援保险(尊贵版)',
           subtitle: '全球医疗 24h救援 超值保障 天数自选 延误赔付',
           description:
@@ -262,6 +266,7 @@ export default {
         },
         {
           id: 2,
+          url: require('@/assets/home/home-insurance-small.png'),
           title: '乐享百万医疗保险',
           subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
           description:
@@ -272,6 +277,7 @@ export default {
         },
         {
           id: 3,
+          url: require('@/assets/home/home-insurance-small.png'),
           title: '个人意外综合保险',
           subtitle: '综合保障意外+医疗+伤残补助，最高可达100万',
           description:
@@ -288,7 +294,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/common/_variable.scss';
-.x-views-home-container-bgfff {
+.x-views-home-container-bg-light {
   background-color: #fff;
   width: 100%;
   box-shadow: $box-shadow-primary;
@@ -296,17 +302,18 @@ export default {
     padding-top: 20px;
   }
 }
-.x-views-home-container-bg000 {
+.x-views-home-container-bg-dark {
   width: 100%;
 }
 .x-views-home-main {
   .x-views-home-banner {
-    max-width: 1366px;
+    width: 1366px;
     margin: auto;
+    box-shadow: $box-shadow-secondary;
   }
   .x-views-home-section {
     padding: 40px 0;
-    max-width: 1366px;
+    width: 1366px;
     margin: auto;
   }
   .x-views-home-recomm {

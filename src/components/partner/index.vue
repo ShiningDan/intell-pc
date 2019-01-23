@@ -1,6 +1,13 @@
 <template>
   <div class="x-partner">
-      <img v-for="item in data" :src="item.url" width="160" height="60" :alt="item.title">
+    <img
+      v-for="item in data"
+      :key="item.id"
+      :src="item.url"
+      width="160"
+      height="60"
+      :alt="item.title"
+    />
   </div>
 </template>
 
@@ -8,7 +15,7 @@
 export default {
   props: {
     data: Array,
-  }
+  },
 }
 </script>
 

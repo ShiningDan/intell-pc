@@ -9,25 +9,28 @@
         <a href="#">网站声明</a>
         <a href="#">隐私声明</a>
       </div>
-      <p class="info">© 2018 XXX商务顾问(北京)有限公司 All rights reserved
-        <br>京ICP证 100953号 京公网安备 11010502020657 京ICP备12025643号-1
-      </p>
+      <p>© 2018 XXX商务顾问(北京)有限公司 All rights reserved</p>
+      <p>京ICP证 100953号 京公网安备 11010502020657 京ICP备12025643号-1</p>
     </div>
     <p class="x-footer-number">
       <span>400-400-4000</span>
-      <br>7x24小时服务热线
+      <br />
+      7x24小时服务热线
     </p>
-    <div class="x-footer-right">app下载
-      <br>
-      <img src="@/assets/home/QR_code.png" alt="app下载" width="100" height="100">
+    <div class="x-footer-right">
+      app下载
+      <br />
+      <img src="@/assets/home/QR_code.png" alt="app下载" width="100" height="100" />
     </div>
-    <div class="x-footer-right">微信小程序
-      <br>
-      <img src="@/assets/home/QR_code.png" alt="微信小程序" width="100" height="100">
+    <div class="x-footer-right">
+      微信小程序
+      <br />
+      <img src="@/assets/home/QR_code.png" alt="微信小程序" width="100" height="100" />
     </div>
-    <div class="x-footer-right">微信公众号
-      <br>
-      <img src="@/assets/home/QR_code.png" alt="微信公众号" width="100" height="100">
+    <div class="x-footer-right">
+      微信公众号
+      <br />
+      <img src="@/assets/home/QR_code.png" alt="微信公众号" width="100" height="100" />
     </div>
   </div>
 </template>
@@ -51,7 +54,7 @@
     }
   }
   p {
-    height: 60px;
+    // height: 30px;
     color: #666;
     font-size: 14px;
   }

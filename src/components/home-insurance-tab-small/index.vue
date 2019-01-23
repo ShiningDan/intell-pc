@@ -1,12 +1,7 @@
 <template>
   <el-card class="x-home-insurance-tab-small" :body-style="{ padding: '0px' }">
     <div class="x-home-insurance-tab-small-img">
-      <img
-        src="@/assets/home/home-insurance-small.png"
-        :alt="data.title"
-        width="270"
-        height="170"
-      />
+      <img :src="data.url" :alt="data.title" width="270" height="170" />
     </div>
     <div class="x-home-insurance-tab-small-content">
       <div class="x-home-insurance-tab-small-header">{{ data.title }}</div>
@@ -60,6 +55,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/common/_variable.scss';
 .x-home-insurance-tab-small {
+  cursor: pointer;
   border-radius: 10px;
   width: 673px;
   height: 170px;
@@ -74,7 +70,7 @@ export default {
   }
   .x-home-insurance-tab-small-content {
     position: absolute;
-    height: 270px;
+    height: 170px;
     width: 403px;
     top: 0;
     right: 0;

@@ -5,7 +5,7 @@
       <el-form-item>
         <el-select v-model="job" placeholder="请选择你的职业">
           <el-option
-            v-for="job in jonOptions"
+            v-for="job in jobOptions"
             :key="job.value"
             :label="job.label"
             :value="job.value"
@@ -55,8 +55,8 @@ export default {
       salary: '',
       use: '',
       amount: '',
-      jonOptions: [
-                {
+      jobOptions: [
+        {
           label: '学生',
           value: 'student',
         },
@@ -115,7 +115,7 @@ export default {
         {
           label: '网络联名',
           value: 'use-name',
-        }
+        },
       ],
       amountOptions: [
         {

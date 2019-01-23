@@ -1,8 +1,8 @@
 <template>
-  <div class="x-header-container">
+  <div class="x-header-container" :class="{ 'x-header-container-fixed': isfixed }">
     <div class="x-header-main" :body-style="{ padding: '0px' }">
       <div class="x-header-logo" @click="selectTab('/')">
-        <img src="@/assets/home/logo.png" alt="Logo" width="200" height="80">
+        <img src="@/assets/home/logo.png" alt="Logo" width="200" height="80" />
       </div>
       <div class="x-header-left x-header-tab" @click="selectTab('/')">首页</div>
       <div class="x-header-left x-header-tab" @click="selectTab('/loan')">贷款</div>
@@ -24,6 +24,7 @@ export default {
   data() {
     return {
       search: '',
+      isfixed: false,
     }
   },
   methods: {
@@ -33,6 +34,21 @@ export default {
     selectTab(path) {
       this.$router.replace(path)
     },
+    scrollHeader() {
+      let scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop >= 32) {
+        this.isfixed = true
+      } else {
+        this.isfixed = false
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.scrollHeader)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.scrollHeader)
   },
 }
 </script>
@@ -44,9 +60,11 @@ export default {
   background-color: #fff;
   box-shadow: $box-shadow-secondary;
   position: absolute;
-  // position: fixed;
-  // top: 0;
   z-index: 3;
+}
+.x-header-container-fixed {
+  position: fixed;
+  top: 0;
 }
 .x-header-main {
   max-width: 1366px;
