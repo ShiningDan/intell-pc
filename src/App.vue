@@ -33,7 +33,6 @@ export default {
 .app-main {
   padding: 0px;
   max-width: 1366px;
-  background-color: #fff;
   margin:auto;
 }
 </style>

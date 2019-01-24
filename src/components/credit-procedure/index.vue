@@ -55,7 +55,7 @@ export default {
       margin: 10px;
     }
     .icon{
-      color: #ff4500;
+      color: $theme-color;
       font-size: 40px;
     }
   }
