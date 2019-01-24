@@ -11,7 +11,7 @@
         </el-carousel>
       </template>
       <template slot="form">
-        <v-credit-form></v-credit-form>
+        <v-credit-match-form></v-credit-match-form>
       </template>
     </v-banner>
     <div class="x-views-credit-adv">
@@ -46,7 +46,7 @@
 import VBanner from '@/components/banner/index.vue'
 import VCreditAdvantage from '@/components/credit-advantage/index.vue'
 import VCreditDiscount from '@/components/credit-discount/index.vue'
-import VCreditForm from '@/components/credit-form/index.vue'
+import VCreditMatchForm from '@/components/credit-match-form/index.vue'
 import VHomeRecommTitle from '@/components/home-recomm-title/index.vue'
 import VHomeRecommTab from '@/components/home-recomm-tab/index.vue'
 import VSubTitle from '@/components/sub-title/index.vue'
@@ -56,7 +56,7 @@ export default {
   components: {
     VBanner,
     VCreditAdvantage,
-    VCreditForm,
+    VCreditMatchForm,
     VCreditDiscount,
     VHomeRecommTitle,
     VHomeRecommTab,

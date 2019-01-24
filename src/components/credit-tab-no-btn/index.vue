@@ -23,7 +23,6 @@
           <i class="icon el-icon-goods"></i>
           已申请人数（<a class="titlesmall-light">{{data.applied}}</a>）人
         </p>
-        <el-button class="btn" @click="selectTab('/creditCardApply')">立即申请</el-button>
       </div>
     </div>
   </div>
@@ -33,11 +32,6 @@
 export default {
   props: {
     data: Object,
-  },
-  methods: {
-    selectTab(path) {
-      this.$router.replace(path)
-    },
   },
 }
 </script>
@@ -66,7 +60,7 @@ export default {
     .title {
       height: 20px;
       font-size: 18px;
-      margin-top: 10px;
+      margin-top: 15px;
       .icon {
         color: $theme-color;
       }
@@ -74,7 +68,7 @@ export default {
     .titlesmall {
       height: 20px;
       font-size: 14px;
-      margin-top: 10px;
+      margin-top: 30px;
       margin-left: 2px;
       .icon {
         color: $theme-color;

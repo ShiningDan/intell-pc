@@ -45,8 +45,10 @@ export default {
     text-align: center;
     vertical-align: middle;
     margin-top: 20px;
+    margin-left: 80px;
+    display: flex;
+    align-content: space-around;
     .x-credit-procedure-line{
-      display: inline-block;
       width: 320px;
       height: 2px;
       background-color: #e5e5e5;
@@ -60,13 +62,13 @@ export default {
   .x-credit-procedure-content{
     height: 30px;
     padding: 30px;
+    display: flex;
+    align-content: space-around;
     .content0{
-      display: inline-block;
       margin-left: 15px;
     }
     .content{
-      display: inline-block;
-      margin-left: 240px;
+      margin-left: 245px;
     }
   }
 }
