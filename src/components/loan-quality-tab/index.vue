@@ -44,21 +44,22 @@ export default {
   .x-loan-quality-tab-head {
     width: 240px;
     height: 80px;
+    padding-left: 15px;
+    padding-top: 15px;
     background-color: #89cac4;
     display: flex;
-    justify-content: flex-between;
+    justify-content: space-between;
     .x-home-recomm-tab-img {
-      width: 100px;
-      height: 80px;
-      margin: 35px 15px 15px 15px;
+      width: 50px;
+      height: 50px;
     }
     .x-loan-quality-tab-title {
-      width: 140px;
-      height: 80px;
-      line-height: 80px;
+      height: 50px;
+      width: 170px;
+      line-height: 50px;
       font-size: 24px;
       font-weight: bold;
-      text-align: center;
+      text-align: left;
       vertical-align: middle;
     }
   }
@@ -72,7 +73,7 @@ export default {
   }
   .x-loan-quality-tab-content {
     width: 240px;
-    margin: 20px;
+    padding: 20px;
     font-size: 18px;
   }
 }

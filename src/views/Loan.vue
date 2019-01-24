@@ -76,6 +76,23 @@
         <div class="x-views-loan-aside-compute x-views-loan-section">
           <v-loan-compute></v-loan-compute>
         </div>
+        <div class="x-views-loan-aside-adviser x-views-loan-section">
+          <v-loan-adviser-title>贷款顾问</v-loan-adviser-title>
+          <div class="x-views-loan-adviser-main">
+            <v-loan-adviser-tab
+              v-for="adviser in advisers"
+              :key="adviser.id"
+              :data="adviser"
+            ></v-loan-adviser-tab>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="x-views-loan-statement x-views-loan-section">
+      <div><v-loan-quality-title content="特别声明"></v-loan-quality-title></div>
+      <div class="x-views-loan-statement-content">
+        <p>* 贷款额度，放款时间以审批结果为准；</p>
+        <p>* 您的信息将只作为产品推荐使用，不会以任何形式泄露给其他人员或机构。</p>
       </div>
     </div>
   </div>
@@ -93,6 +110,8 @@ import VSubTitle from '@/components/sub-title/index.vue'
 import VShowMore from '@/components/show-more/index.vue'
 import VLoanTab from '@/components/loan-tab/index.vue'
 import VLoanCompute from '@/components/loan-compute/index.vue'
+import VLoanAdviserTitle from '@/components/loan-adviser-title/index.vue'
+import VLoanAdviserTab from '@/components/loan-adviser-tab/index.vue'
 
 export default {
   components: {
@@ -106,6 +125,8 @@ export default {
     VShowMore,
     VLoanTab,
     VLoanCompute,
+    VLoanAdviserTitle,
+    VLoanAdviserTab,
   },
   data() {
     return {
@@ -114,6 +135,7 @@ export default {
       houseloans: [],
       creditloans: [],
       carloans: [],
+      advisers: [],
     }
   },
   mounted() {
@@ -126,11 +148,13 @@ export default {
       const houseloans = await this.getHouseLoan()
       const creditloans = await this.getCreditLoan()
       const carloans = await this.getCarLoan()
+      const advisers = await this.getAdviser()
       this.advantages = advantages
       this.qualitys = qualitys
       this.houseloans = houseloans
       this.creditloans = creditloans
       this.carloans = carloans
+      this.advisers = advisers
     },
     async getAdvantages() {
       return [
@@ -252,6 +276,25 @@ export default {
         },
       ]
     },
+    async getAdviser() {
+      return [
+        {
+          id: 1,
+          title: '张三',
+          content: '咨询人数：107\n从业时间：2年',
+        },
+        {
+          id: 2,
+          title: '张三',
+          content: '咨询人数：107\n从业时间：2年',
+        },
+        {
+          id: 3,
+          title: '张三',
+          content: '咨询人数：107\n从业时间：2年',
+        },
+      ]
+    },
   },
 }
 </script>
@@ -279,8 +322,8 @@ export default {
     justify-content: space-between;
     .x-views-loan-content-main {
       width: 1020px;
+      background-color: #f8f8f8;
       .x-views-loan-quality {
-        background-color: #f8f8f8;
         .x-views-loan-quality-main {
           display: flex;
           justify-content: space-between;
@@ -288,7 +331,6 @@ export default {
         }
       }
       .x-views-loan-house {
-        background-color: #f8f8f8;
         .x-views-loan-house-main {
           display: flex;
           justify-content: space-between;
@@ -296,7 +338,6 @@ export default {
         }
       }
       .x-views-loan-credit {
-        background-color: #f8f8f8;
         .x-views-loan-credit-main {
           display: flex;
           justify-content: space-between;
@@ -304,7 +345,6 @@ export default {
         }
       }
       .x-views-loan-car {
-        background-color: #f8f8f8;
         .x-views-loan-car-main {
           width: 670px;
           display: flex;
@@ -319,6 +359,19 @@ export default {
       .x-views-loan-aside-compute {
         margin-left: 26px;
       }
+      .x-views-loan-aside-adviser {
+        margin-left: 26px;
+      }
+    }
+  }
+  .x-views-loan-statement {
+    width: 1366px;
+    .x-views-loan-statement-content {
+      margin-top: 20px;
+      padding-left: 140px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 30px;
     }
   }
 }
