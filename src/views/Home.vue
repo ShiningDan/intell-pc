@@ -15,7 +15,7 @@
           <v-home-loan-form></v-home-loan-form>
         </template>
       </v-banner>
-      <div class="x-views-home-recomm x-views-section" v-if="recommends.length > 0">
+      <div class="x-views-section" v-if="recommends.length > 0">
         <v-home-recomm-title content="特别推荐"></v-home-recomm-title>
         <div class="x-views-main">
           <v-home-recomm-tab
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="x-views-container-bg-dark">
-      <div class="x-views-home-loan x-views-section" v-if="loans.length > 0">
+      <div class="x-views-section" v-if="loans.length > 0">
         <div>
           <v-sub-title>贷款</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="x-views-container-bg-light">
-      <div class="x-views-home-insurance x-views-section" v-if="insuracnes.length > 0">
+      <div class="x-views-section" v-if="insuracnes.length > 0">
         <div>
           <v-sub-title>保险</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="x-views-container-bg-dark">
-      <div class="x-views-home-credit x-views-section" v-if="credits.length > 0">
+      <div class="x-views-section" v-if="credits.length > 0">
         <div>
           <v-sub-title>信用卡</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
