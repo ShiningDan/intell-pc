@@ -8394,6 +8394,11 @@ vue@^2.5.17:
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.21.tgz#3d33dcd03bb813912ce894a8303ab553699c4a85"
   integrity sha1-PTPc0Du4E5Es6JSoMDq1U2mcSoU=
 
+vuescroll@^4.9.6:
+  version "4.9.6"
+  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.9.6.tgz#77c6738715ea14e00b5e003ec6d2e72560fa21b5"
+  integrity sha512-qQJjESaBW/4psBjsXhpaNdgAMOtY/Dc/u2DfwlLIWAF2ZMeFvF+vSg5UhTeZ4DJeyftWL+ridPCws93JlrcXqQ==
+
 watchpack@^1.5.0:
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/watchpack/download/watchpack-1.6.0.tgz#4bc12c2ebe8aa277a71f1d3f14d685c7b446cd00"

@@ -1,6 +1,6 @@
 <template>
   <div class="x-views-home-main">
-    <div class="x-views-home-container-bg-light">
+    <div class="x-views-container-bg-light">
       <v-banner class="x-views-home-banner">
         <template slot="carousel">
           <el-carousel height="400px">
@@ -15,9 +15,9 @@
           <v-home-loan-form></v-home-loan-form>
         </template>
       </v-banner>
-      <div class="x-views-home-recomm x-views-home-section" v-if="recommends.length > 0">
+      <div class="x-views-home-recomm x-views-section" v-if="recommends.length > 0">
         <v-home-recomm-title content="特别推荐"></v-home-recomm-title>
-        <div class="x-views-home-recomm-main">
+        <div class="x-views-main">
           <v-home-recomm-tab
             v-for="recommend in recommends"
             :key="recommend.id"
@@ -26,25 +26,25 @@
         </div>
       </div>
     </div>
-    <div class="x-views-home-container-bg-dark">
-      <div class="x-views-home-loan x-views-home-section" v-if="loans.length > 0">
+    <div class="x-views-container-bg-dark">
+      <div class="x-views-home-loan x-views-section" v-if="loans.length > 0">
         <div>
           <v-sub-title>贷款</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
         </div>
-        <div class="x-views-home-loan-main">
+        <div class="x-views-main">
           <v-loan-tab v-for="loan in loans" :key="loan.id" :data="loan"></v-loan-tab>
           <v-loan-compute></v-loan-compute>
         </div>
       </div>
     </div>
-    <div class="x-views-home-container-bg-light">
-      <div class="x-views-home-insurance x-views-home-section" v-if="insuracnes.length > 0">
+    <div class="x-views-container-bg-light">
+      <div class="x-views-home-insurance x-views-section" v-if="insuracnes.length > 0">
         <div>
           <v-sub-title>保险</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
         </div>
-        <div class="x-views-home-insurance-main">
+        <div class="x-views-main">
           <div><v-home-insurance-tab-big :data="insuracnes[0]"></v-home-insurance-tab-big></div>
           <div>
             <v-home-insurance-tab-small :data="insuracnes[1]"></v-home-insurance-tab-small>
@@ -56,13 +56,13 @@
         </div>
       </div>
     </div>
-    <div class="x-views-home-container-bg-dark">
-      <div class="x-views-home-credit x-views-home-section" v-if="credits.length > 0">
+    <div class="x-views-container-bg-dark">
+      <div class="x-views-home-credit x-views-section" v-if="credits.length > 0">
         <div>
           <v-sub-title>信用卡</v-sub-title>
           <v-show-more style="float: right"></v-show-more>
         </div>
-        <div class="x-views-home-credit-main">
+        <div class="x-views-main">
           <v-home-recomm-tab
             v-for="credit in credits"
             :key="credit.id"
@@ -71,15 +71,6 @@
           <v-credit-compute></v-credit-compute>
         </div>
       </div>
-    </div>
-    <div class="x-views-home-container-bg-light">
-      <div class="x-views-home-partner x-views-home-section">
-        <div><v-sub-title>合作机构</v-sub-title></div>
-        <div class="x-views-home-partner-main"><v-partner :data="partners"></v-partner></div>
-      </div>
-    </div>
-    <div class="x-views-home-container-bg-dark">
-      <div class="x-views-home-section"><v-footer></v-footer></div>
     </div>
   </div>
 </template>
@@ -97,8 +88,6 @@ import VLoanCompute from '@/components/loan-compute/index.vue'
 import VCreditCompute from '@/components/credit-compute/index.vue'
 import VHomeInsuranceTabBig from '@/components/home-insurance-tab-big/index.vue'
 import VHomeInsuranceTabSmall from '@/components/home-insurance-tab-small/index.vue'
-import VPartner from '@/components/partner/index.vue'
-import VFooter from '@/components/footer/index.vue'
 
 export default {
   components: {
@@ -113,8 +102,6 @@ export default {
     VHomeInsuranceTabBig,
     VHomeInsuranceTabSmall,
     VCreditCompute,
-    VPartner,
-    VFooter,
   },
   data() {
     return {
@@ -294,61 +281,22 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/common/_variable.scss';
-.x-views-home-container-bg-light {
-  background-color: #fff;
-  width: 100%;
-  box-shadow: $box-shadow-primary;
-  &:first-child {
-    padding-top: 20px;
-  }
-}
-.x-views-home-container-bg-dark {
-  width: 100%;
-}
 .x-views-home-main {
+  .x-views-container-bg-light {
+    &:first-child {
+      padding-top: 20px;
+    }
+  }
   .x-views-home-banner {
     width: 1366px;
     margin: auto;
     box-shadow: $box-shadow-secondary;
   }
-  .x-views-home-section {
-    padding: 40px 0;
-    width: 1366px;
-    margin: auto;
-  }
-  .x-views-home-recomm {
-    .x-views-home-recomm-main {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-  }
-  .x-views-home-loan {
-    .x-views-home-loan-main {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-  }
-  .x-views-home-insurance {
-    .x-views-home-insurance-main {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-  }
-  .x-views-home-credit {
-    .x-views-home-credit-main {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-  }
 }
 // 这里是轮播图的测试样式，换成图片后可以删除
-.x-views-home-banner-carousel-item {
-  // width: 100%;
-}
+//.x-views-home-banner-carousel-item {
+// width: 100%;
+//}
 .x-views-home-banner-carousel-item h3 {
   text-align: center;
   color: #475669;

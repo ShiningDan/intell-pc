@@ -6,20 +6,6 @@
     @mouseenter.native="toggle"
     @mouseleave.native="toggle"
   >
-    <!-- <div class="x-insurance-recomm-tab-content-show" :class="{'x-insurance-recomm-tab-content-hide': !ishover}">
-      <p>{{ data.title }}</p>
-      <p>
-        <span class="price">{{data.price}}</span>元/月起
-      </p>
-    </div>
-    <div class="x-insurance-recomm-tab-hide" :class="{ 'x-insurance-recomm-tab-show': !ishover }">
-      <p>{{data.title}}</p>
-      <p>
-        <span class="price">{{data.price}}</span>元/月起
-      </p>
-      <p>{{data.content}}</p>
-      <el-button>立即投保</el-button>
-    </div>-->
     <div
       :class="[
         'x-insurance-recomm-tab-content-show',

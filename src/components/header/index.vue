@@ -1,5 +1,5 @@
 <template>
-  <div class="x-header-container" :class="{ 'x-header-container-fixed': isfixed }">
+  <div class="x-header-container">
     <div class="x-header-main" :body-style="{ padding: '0px' }">
       <div class="x-header-logo" @click="selectTab('/')">
         <img src="@/assets/home/logo.png" alt="Logo" width="200" height="80" />
@@ -12,7 +12,7 @@
       <div class="x-header-right x-header-tab">登录</div>
       <div class="x-header-search">
         <el-input placeholder="搜索" v-model="search">
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="append" icon="el-icon-search" @click="onSearch"></el-button>
         </el-input>
       </div>
     </div>
@@ -24,7 +24,6 @@ export default {
   data() {
     return {
       search: '',
-      isfixed: false,
     }
   },
   methods: {
@@ -34,21 +33,6 @@ export default {
     selectTab(path) {
       this.$router.replace(path)
     },
-    scrollHeader() {
-      let scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop >= 32) {
-        this.isfixed = true
-      } else {
-        this.isfixed = false
-      }
-    },
-  },
-  mounted() {
-    window.addEventListener('scroll', this.scrollHeader)
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.scrollHeader)
   },
 }
 </script>
@@ -59,12 +43,7 @@ export default {
   width: 100%;
   background-color: #fff;
   box-shadow: $box-shadow-secondary;
-  position: absolute;
   z-index: 3;
-}
-.x-header-container-fixed {
-  position: fixed;
-  top: 0;
 }
 .x-header-main {
   max-width: 1366px;
@@ -73,13 +52,13 @@ export default {
   font-size: 18px;
   line-height: 80px;
   background-color: #fff;
-  color: #171717;
+  color: $text-primary;
   text-align: center;
   vertical-align: middle;
   .x-header-tab {
     cursor: pointer;
     &:hover {
-      background-color: #f8f8f8;
+      background-color: $bg-primary;
     }
   }
   .x-header-logo {

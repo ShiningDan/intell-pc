@@ -1,6 +1,6 @@
 <template>
-  <div class="x-views-insurance-main">
-    <div class="x-views-insurance-container-bg-light">
+  <div class="x-views-insurances-main">
+    <div class="x-views-container-bg-light">
       <v-banner class="x-views-insurance-banner">
         <template slot="carousel">
           <el-carousel height="400px">
@@ -15,8 +15,8 @@
           <v-insurance-form></v-insurance-form>
         </template>
       </v-banner>
-      <div class="x-views-insurance-recomm x-views-insurance-section" v-if="insurances.length > 0">
-        <div class="x-views-insurance-recomm-main">
+      <div class="x-views-section" v-if="insurances.length > 0">
+        <div class="x-views-main">
           <v-insurance-recomm-tab
             v-for="insurance in insurances"
             :key="insurance.id"
@@ -25,16 +25,11 @@
         </div>
       </div>
     </div>
-    <div class="x-views-insurance-container-bg-dark">
-      <div
-        class="x-views-insurance-insurance x-views-insurance-section"
-        v-if="illnessInsurances.length > 0"
-      >
-        <div>
-          <v-sub-title>重疾险</v-sub-title>
-          <v-show-more style="float: right"></v-show-more>
-        </div>
-        <div class="x-views-insurance-main">
+    <div class="x-views-container-bg-dark">
+      <div class="x-views-section" v-if="illnessInsurances.length > 0">
+        <v-sub-title>重疾险</v-sub-title>
+        <v-show-more style="float: right"></v-show-more>
+        <div class="x-views-main">
           <v-home-insurance-tab-small
             v-for="item in illnessInsurances"
             :data="item"
@@ -43,16 +38,11 @@
         </div>
       </div>
     </div>
-    <div class="x-views-insurance-container-bg-light">
-      <div
-        class="x-views-insurance-insurance x-views-insurance-section"
-        v-if="travelInsurances.length > 0"
-      >
-        <div>
-          <v-sub-title>出行险</v-sub-title>
-          <v-show-more style="float: right"></v-show-more>
-        </div>
-        <div class="x-views-insurance-main">
+    <div class="x-views-container-bg-light">
+      <div class="x-views-section" v-if="travelInsurances.length > 0">
+        <v-sub-title>出行险</v-sub-title>
+        <v-show-more style="float: right"></v-show-more>
+        <div class="x-views-main">
           <v-home-insurance-tab-small
             v-for="item in travelInsurances"
             :data="item"
@@ -61,16 +51,11 @@
         </div>
       </div>
     </div>
-    <div class="x-views-insurance-container-bg-dark">
-      <div
-        class="x-views-insurance-insurance x-views-insurance-section"
-        v-if="healthInsurances.length > 0"
-      >
-        <div>
-          <v-sub-title>健康险</v-sub-title>
-          <v-show-more style="float: right"></v-show-more>
-        </div>
-        <div class="x-views-insurance-main">
+    <div class="x-views-container-bg-dark">
+      <div class="x-views-section" v-if="healthInsurances.length > 0">
+        <v-sub-title>健康险</v-sub-title>
+        <v-show-more style="float: right"></v-show-more>
+        <div class="x-views-main">
           <v-home-insurance-tab-small
             v-for="item in healthInsurances"
             :data="item"
@@ -79,14 +64,14 @@
         </div>
       </div>
     </div>
-    <div class="x-views-insurance-container-bg-dark">
-      <div class="x-views-insurance-section">
+    <div class="x-views-container-bg-light">
+      <div class="x-views-section">
         <v-home-recomm-title content="投保流程"></v-home-recomm-title>
         <v-insurance-process></v-insurance-process>
       </div>
     </div>
-    <div class="x-views-insurance-container-bg-dark">
-      <div class="x-views-insurance-section">
+    <div class="x-views-container-bg-dark">
+      <div class="x-views-section">
         <v-home-recomm-title content="投保案例"></v-home-recomm-title>
         <v-insurance-example
           v-for="item in examples"
@@ -94,15 +79,6 @@
           :key="item.id"
         ></v-insurance-example>
       </div>
-    </div>
-    <div class="x-views-insurance-container-bg-light">
-      <div class="x-views-insurance-partner x-views-insurance-section">
-        <div><v-sub-title>合作机构</v-sub-title></div>
-        <div class="x-views-insurance-partner-main"><v-partner :data="partners"></v-partner></div>
-      </div>
-    </div>
-    <div class="x-views-insurance-container-bg-dark">
-      <div class="x-views-insurance-section"><v-footer></v-footer></div>
     </div>
   </div>
 </template>
@@ -116,8 +92,6 @@ import VInsuranceRecommTab from '@/components/insurance-recomm-tab/index.vue'
 import VSubTitle from '@/components/sub-title/index.vue'
 import VShowMore from '@/components/show-more/index.vue'
 import VHomeInsuranceTabSmall from '@/components/home-insurance-tab-small/index.vue'
-import VPartner from '@/components/partner/index.vue'
-import VFooter from '@/components/footer/index.vue'
 import VInsuranceProcess from '@/components/insurance-process/index.vue'
 import VInsuranceExample from '@/components/insurance-example/index.vue'
 
@@ -129,8 +103,6 @@ export default {
     VSubTitle,
     VShowMore,
     VHomeInsuranceTabSmall,
-    VPartner,
-    VFooter,
     VHomeRecommTitle,
     VInsuranceProcess,
     VInsuranceExample,
@@ -141,7 +113,6 @@ export default {
       illnessInsurances: [],
       travelInsurances: [],
       healthInsurances: [],
-      partners: [],
       examples: [],
     }
   },
@@ -155,12 +126,10 @@ export default {
       const travelInsurances = await this.getTravelInsurances()
       const healthInsurances = await this.getHealthInsurances()
       const examples = await this.getExamples()
-      const partners = await this.getPartners()
       this.insurances = insurances
       this.illnessInsurances = illnessInsurances
       this.travelInsurances = travelInsurances
       this.healthInsurances = healthInsurances
-      this.partners = partners
       this.examples = examples
     },
     async getInsurances() {
@@ -370,89 +339,36 @@ export default {
         },
       ]
     },
-    async getPartners() {
-      return [
-        {
-          id: 1,
-          title: '1',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 2,
-          title: '2',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 3,
-          title: '3',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 4,
-          title: '4',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 5,
-          title: '5',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 6,
-          title: '6',
-          url: require('@/assets/home/fff.png'),
-        },
-      ]
-    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/common/_variable.scss';
-.x-views-insurance-container-bg-light {
-  background-color: #fff;
-  width: 100%;
-  box-shadow: $box-shadow-primary;
+.x-views-container-bg-light {
   &:first-child {
     padding-top: 20px;
   }
 }
-.x-views-insurance-container-bg-dark {
-  width: 100%;
-}
-.x-views-insurance-main {
+.x-views-insurances-main {
   .x-views-insurance-banner {
     width: 1366px;
     margin: auto;
     box-shadow: $box-shadow-secondary;
   }
-  .x-views-insurance-section {
-    padding: 40px 0;
-    width: 1366px;
-    margin: auto;
-  }
-  .x-views-insurance-recomm {
-    .x-views-insurance-recomm-main {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-  .x-views-insurance-insurance {
-    .x-views-insurance-main {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      .el-card {
+  .x-views-main {
+    flex-wrap: wrap;
+    .x-home-insurance-tab-small {
+      &:nth-child(n + 3) {
         margin-top: 20px;
       }
     }
   }
 }
 // 这里是轮播图的测试样式，换成图片后可以删除
-.x-views-insurance-banner-carousel-item {
-  // width: 100%;
-}
+//.x-views-insurance-banner-carousel-item {
+// width: 100%;
+//}
 .x-views-insurance-banner-carousel-item h3 {
   text-align: center;
   color: #475669;
