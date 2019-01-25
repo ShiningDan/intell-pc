@@ -3,7 +3,11 @@
     <div class="x-views-credit-apply-title">信用卡>信用卡申请</div>
     <div class="x-views-credit-apply-select">
       <div class="x-views-credit-apply-select-title">请选择卡面：</div>
-      <el-select v-model="cardType" class="x-views-credit-apply-select-item">
+      <el-select
+        v-model="cardType"
+        class="x-views-credit-apply-select-item"
+        @change="showCard(cardType)"
+      >
         <el-option
           v-for="item in cardTypes"
           :key="item.value"
@@ -13,7 +17,12 @@
       </el-select>
     </div>
     <div class="x-views-credit-apply-card">
-      <v-credit-tab-no-btn v-for="card in cards" :key="card.id" :data="card"></v-credit-tab-no-btn>
+      <v-credit-tab-no-btn
+        v-for="card in cards"
+        :key="card.id"
+        :data="card"
+        v-show="card.show"
+      ></v-credit-tab-no-btn>
     </div>
     <div class="x-views-credit-apply-form">
       <v-credit-apply-form></v-credit-apply-form>
@@ -76,9 +85,50 @@ export default {
           img: require('@/assets/credit/card1.png'),
           cardTitle: '苏宁易购联名卡',
           cardWeals: '白金卡，免年费\n开卡得苏宁SUPER VIP会员\n9元看电影，9积分兑星巴克',
+          show: true,
+          value: 'card-suning',
+          applied: 1234,
+        },
+        {
+          id: 2,
+          img: require('@/assets/credit/card2.png'),
+          cardTitle: '浦发腾讯联名卡',
+          cardWeals: '白金卡，免年费\n微信支付享3倍积分\n9积分兑星巴克',
+          show: false,
+          value: 'card-pufa-tenxun',
+          applied: 1234,
+        },
+        {
+          id: 3,
+          img: require('@/assets/credit/card3.png'),
+          cardTitle: 'VISA白金卡',
+          cardWeals:
+            '白金卡，免年费，免版面费\n指定五星级酒店自助餐买一赠一\n指定酒店免费双早/入住升级礼遇',
+          show: false,
+          value: 'card-visa-white',
+          applied: 1234,
+        },
+        {
+          id: 4,
+          img: require('@/assets/credit/card4.png'),
+          cardTitle: '中信优酷联名卡',
+          cardWeals: '白金卡，免年费\n新户刷卡月月领VIP会员\n9元买电影票',
+          show: false,
+          value: 'card-youku',
           applied: 1234,
         },
       ]
+    },
+    showCard(cType) {
+      var cardCOUNT = 0
+      while (cardCOUNT < this.cards.length) {
+        if (cType === this.cards[cardCOUNT].value) {
+          this.cards[cardCOUNT].show = true
+        } else {
+          this.cards[cardCOUNT].show = false
+        }
+        cardCOUNT++
+      }
     },
   },
 }
