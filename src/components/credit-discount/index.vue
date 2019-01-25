@@ -13,7 +13,7 @@
           <p>卑斯20寸拉杆箱或OralB牙刷+乐扣保温</p>
           <p>杯盒套装</p>
         </div>
-        <el-button class="btn">立即参加</el-button>
+        <el-button class="btn" @click="selectTab('/creditCardActivities')">了解详情</el-button>
       </div>
     </div>
     <div class="x-credit-discount">
@@ -30,11 +30,20 @@
           <p>无理由退货100%全额赔付，穿过、洗过、</p>
           <p>有无吊牌均可退。</p>
         </div>
-        <el-button class="btn">立即参加</el-button>
+        <el-button class="btn" @click="selectTab('/creditCardActivities')">了解详情</el-button>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    selectTab(path) {
+      this.$router.replace(path)
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/common/_variable.scss';
