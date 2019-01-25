@@ -7,11 +7,14 @@ import vuescroll from 'vuescroll/dist/vuescroll-native'
 import 'vuescroll/dist/vuescroll.css'
 Vue.use(vuescroll, {
   ops: {
+    scrollPanel: {
+      verticalNativeBarPos: 'left',
+    },
     vuescroll: {
       detectResize: false,
     },
     bar: {
-      background: '#8D8E8E',
+      opacity: 0,
     },
   },
 })

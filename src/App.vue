@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <vue-scroll @handle-scroll="handleScroll">
+  <vue-scroll @handle-scroll="handleScroll">
+    <div id="app">
       <div class="app-header">
         <v-header-top></v-header-top>
         <v-header
@@ -19,8 +19,8 @@
           <div class="x-views-section"><v-footer></v-footer></div>
         </div>
       </div>
-    </vue-scroll>
-  </div>
+    </div>
+  </vue-scroll>
 </template>
 
 <script>
@@ -105,9 +105,6 @@ export default {
   color: $text-primary;
   font-family: Circular, 'Hiragino Sans GB', '华文细黑', 'STHeiti', '微软雅黑', 'Microsoft YaHei',
     SimHei, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  .__vuescroll .__rail-is-vertical {
-    z-index: 10;
-  }
   .app-header {
     margin-bottom: 80px;
     position: relative;
