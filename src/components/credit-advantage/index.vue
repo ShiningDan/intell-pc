@@ -5,7 +5,7 @@
       <div class="x-credit-advantage-big">免年费</div>
       <div class="x-credit-advantage-small">
         刷卡达标
-        <a class="x-credit-advantage-light">年年</a>
+        <span class="x-credit-advantage-light">年年</span>
         免
       </div>
     </div>
@@ -14,7 +14,7 @@
       <div class="x-credit-advantage-big">享好礼</div>
       <div class="x-credit-advantage-small">
         消费积分
-        <a class="x-credit-advantage-light">兑好礼</a>
+        <span class="x-credit-advantage-light">兑好礼</span>
       </div>
     </div>
     <div class="x-credit-advantage-main">
@@ -22,7 +22,7 @@
       <div class="x-credit-advantage-big">长免息</div>
       <div class="x-credit-advantage-small">
         最长
-        <a class="x-credit-advantage-light">50</a>
+        <span class="x-credit-advantage-light">50</span>
         天免息
       </div>
     </div>
@@ -31,7 +31,7 @@
       <div class="x-credit-advantage-big">高保障</div>
       <div class="x-credit-advantage-small">
         交易刷卡更
-        <a class="x-credit-advantage-light">安全</a>
+        <span class="x-credit-advantage-light">安全</span>
       </div>
     </div>
   </div>

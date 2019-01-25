@@ -1,10 +1,16 @@
 <template>
   <div class="x-credit-apply-form">
-    <div class="x-credit-apply-form-title">填写信息(<a class="x-credit-apply-form-title-light">您正在申请理财产品，请务必确保信息真实准确</a>)
+    <div class="x-credit-apply-form-title">
+      填写信息(
+      <span class="x-credit-apply-form-title-light">
+        您正在申请理财产品，请务必确保信息真实准确
+      </span>
+      )
     </div>
     <div class="x-credit-apply-form-box">
       <div class="x-credit-apply-form-left">
-        <p>姓名：</p><p>性别：</p>
+        <p>姓名：</p>
+        <p>性别：</p>
         <p>身份证号：</p>
         <p>联系方式：</p>
         <p>月收入范围：</p>
@@ -73,43 +79,43 @@ export default {
       phone: '',
       sex: 'man',
       idNumber: '',
-      address:'',
-      verificationCode:'',
+      address: '',
+      verificationCode: '',
       income: '',
       incomes: [
         {
-          value: 'wages-10k',
+          value: '10-',
           label: '10k以下',
         },
         {
-          value: 'wages10-20k',
+          value: '10-20',
           label: '10k~20k',
         },
         {
-          value: 'wages20-30k',
+          value: '20-30',
           label: '20~30k',
         },
         {
-          value: 'wages30k+',
+          value: '-30k',
           label: '30k以上',
         },
       ],
       quota: '',
       quotas: [
         {
-          value: 'quota-2w',
+          value: '2-',
           label: '2w以下',
         },
         {
-          value: 'quota2w-5w',
+          value: '2-5',
           label: '2w~5w',
         },
         {
-          value: 'quota5w-10w',
+          value: '5-10',
           label: '5w~10w',
         },
         {
-          value: 'quota10w+',
+          value: '-10',
           label: '10w以上',
         },
       ],
@@ -134,12 +140,12 @@ export default {
     line-height: 80px;
     color: $text-primary;
     font-size: 18px;
-    .x-credit-apply-form-title-light{
+    .x-credit-apply-form-title-light {
       color: $theme-color;
     }
   }
-  .x-credit-apply-form-box{
-    .x-credit-apply-form-left{
+  .x-credit-apply-form-box {
+    .x-credit-apply-form-left {
       text-align: right;
       line-height: 62px;
       width: 120px;
@@ -147,7 +153,7 @@ export default {
       margin-top: 0px;
       float: left;
     }
-    .x-credit-apply-form-right{
+    .x-credit-apply-form-right {
       display: inline-block;
     }
     .x-credit-apply-form-content {

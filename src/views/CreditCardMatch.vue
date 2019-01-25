@@ -3,17 +3,13 @@
     <div class="x-views-credit-match-title">信用卡>匹配详情</div>
     <div class="x-views-credit-match-tips">
       <v-home-recomm-title
-        content="尊敬的客户您好，根据您刚才所填信息，为您推荐以下产品">
-      </v-home-recomm-title>
+        content="尊敬的客户您好，根据您刚才所填信息，为您推荐以下产品"
+      ></v-home-recomm-title>
     </div>
     <div div class="x-views-credit-match-content">
-         <div class="x-views-credit-match-card">
-      <v-credit-tab
-          v-for="card in cards"
-          :key="card.id"
-          :data="card"
-      ></v-credit-tab>
-    </div>
+      <div class="x-views-credit-match-card">
+        <v-credit-tab v-for="card in cards" :key="card.id" :data="card"></v-credit-tab>
+      </div>
       <div class="x-views-credit-match-info-title">基本信息|专享特权</div>
       <div class="x-views-credit-match-info-key">
         <p>年费政策：</p>
@@ -33,7 +29,7 @@
         <p>中信银行信用卡交易短信通知</p>
         <p>中信银行信用卡可享受48小时挂失前失卡保障服务，每月收取4元</p>
       </div>
-       <div class="x-views-credit-match-info-title">专享特权</div>
+      <div class="x-views-credit-match-info-title">专享特权</div>
       <div class="x-views-credit-match-info-key">
         <p>9元看电影：</p>
         <p>兑星巴克：</p>
@@ -84,45 +80,42 @@ export default {
           id: 1,
           img: require('@/assets/credit/card1.png'),
           cardTitle: '苏宁易购联名卡',
-          cardWeal1: '白金卡，免年费',
-          cardWeal2: '开卡得苏宁SUPER VIP会员',
-          cardWeal3: '9元看电影，9积分兑星巴克',
-          applied:1234,
+          cardWeals: '白金卡，免年费\n开卡得苏宁SUPER VIP会员\n9元看电影，9积分兑星巴克',
+          applied: 1234,
         },
       ]
     },
-  }
+  },
 }
 </script>
 
-
 <style lang="scss" scoped>
 @import '@/common/_variable.scss';
-.x-views-credit-match-main{
+.x-views-credit-match-main {
   width: 100%;
   padding: 0;
-  .x-views-credit-match-title{
+  .x-views-credit-match-title {
     font-size: 18px;
     padding: 20px;
-    box-shadow: #e5e5e5  0px 1px;
+    box-shadow: #e5e5e5 0px 1px;
   }
-  .x-views-credit-match-tips{
+  .x-views-credit-match-tips {
     margin-top: 20px;
   }
-  .x-views-credit-match-content{
+  .x-views-credit-match-content {
     margin-left: 300px;
-    .x-views-credit-match-card{
+    .x-views-credit-match-card {
       height: 200px;
       margin-top: 50px;
       margin-left: 50px;
       // text-align: center;
     }
-    .x-views-credit-match-info-title{
+    .x-views-credit-match-info-title {
       font-size: 18px;
       margin-top: 40px;
       margin-left: 20px;
     }
-    .x-views-credit-match-info-key{
+    .x-views-credit-match-info-key {
       width: 100px;
       font-size: 14px;
       text-align: right;
@@ -130,7 +123,7 @@ export default {
       margin-top: 20px;
       display: inline-block;
     }
-    .x-views-credit-match-info-value{
+    .x-views-credit-match-info-value {
       width: 600px;
       font-size: 14px;
       text-align: left;
@@ -139,7 +132,7 @@ export default {
       display: inline-block;
     }
   }
-  .x-views-credit-match-credit-procedure{
+  .x-views-credit-match-credit-procedure {
     margin-top: 100px;
   }
 }

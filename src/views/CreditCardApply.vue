@@ -1,33 +1,29 @@
 <template>
-<div class="x-views-credit-apply-main">
-  <div class="x-views-credit-apply-title">信用卡>信用卡申请</div>
-  <div class="x-views-credit-apply-select">
-    <div class="x-views-credit-apply-select-title">请选择卡面：</div>
-    <el-select v-model="cardType" class="x-views-credit-apply-select-item">
-          <el-option
-            v-for="item in cardTypes"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-    </el-select>
+  <div class="x-views-credit-apply-main">
+    <div class="x-views-credit-apply-title">信用卡>信用卡申请</div>
+    <div class="x-views-credit-apply-select">
+      <div class="x-views-credit-apply-select-title">请选择卡面：</div>
+      <el-select v-model="cardType" class="x-views-credit-apply-select-item">
+        <el-option
+          v-for="item in cardTypes"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
+      </el-select>
+    </div>
+    <div class="x-views-credit-apply-card">
+      <v-credit-tab-no-btn v-for="card in cards" :key="card.id" :data="card"></v-credit-tab-no-btn>
+    </div>
+    <div class="x-views-credit-apply-form">
+      <v-credit-apply-form></v-credit-apply-form>
+    </div>
+    <div class="x-views-credit-apply-card-tips">
+      <p>温馨提示：中信银行将对您的资料严格保密，请放心填写。</p>
+      <p>该卡将自动开通购汇还款功能，您的账单将以人民币入账显示，并使用人民币还款即可！</p>
+    </div>
+    <v-credit-procedure></v-credit-procedure>
   </div>
-  <div class="x-views-credit-apply-card">
-    <v-credit-tab-no-btn
-      v-for="card in cards"
-      :key="card.id"
-      :data="card"
-    ></v-credit-tab-no-btn>
-  </div>
-  <div class="x-views-credit-apply-form">
-    <v-credit-apply-form></v-credit-apply-form>
-  </div>
-  <div class="x-views-credit-apply-card-tips">
-    <p>温馨提示：中信银行将对您的资料严格保密，请放心填写。</p>
-    <p>该卡将自动开通购汇还款功能，您的账单将以人民币入账显示，并使用人民币还款即可！</p>
-  </div>
-  <v-credit-procedure></v-credit-procedure>
-</div>
 </template>
 
 <script>
@@ -79,46 +75,45 @@ export default {
           id: 1,
           img: require('@/assets/credit/card1.png'),
           cardTitle: '苏宁易购联名卡',
-          cardWeal1: '白金卡，免年费',
-          cardWeal2: '开卡得苏宁SUPER VIP会员',
-          cardWeal3: '9元看电影，9积分兑星巴克',
-          applied:1234,
+          cardWeals: '白金卡，免年费\n开卡得苏宁SUPER VIP会员\n9元看电影，9积分兑星巴克',
+          applied: 1234,
         },
       ]
     },
-  }
+  },
 }
 </script>
 <style lang="scss" scoped>
 @import '@/common/_variable.scss';
-.x-views-credit-apply-main{
-  .x-views-credit-apply-title{
+.x-views-credit-apply-main {
+  .x-views-credit-apply-title {
     font-size: 18px;
     padding: 20px;
-    box-shadow: #e5e5e5  0px 1px;
+    box-shadow: #e5e5e5 0px 1px;
   }
-  .x-views-credit-apply-select{
+  .x-views-credit-apply-select {
     display: flex;
     justify-content: center;
-    margin-top:40px;
-    .x-views-credit-apply-select-title{
+    margin-top: 40px;
+    .x-views-credit-apply-select-title {
       width: 150;
       line-height: 40px;
     }
-    .x-views-credit-apply-select-item{
+    .x-views-credit-apply-select-item {
       width: 200px;
     }
   }
-  .x-views-credit-apply-card,.x-views-credit-apply-form{
+  .x-views-credit-apply-card,
+  .x-views-credit-apply-form {
     display: flex;
     justify-content: center;
-    margin-top:40px;
+    margin-top: 40px;
   }
-  .x-views-credit-apply-card-tips{
+  .x-views-credit-apply-card-tips {
     text-align: center;
     line-height: 30px;
-    margin-top:40px;
-    margin-bottom:40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 </style>
