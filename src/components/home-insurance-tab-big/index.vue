@@ -1,7 +1,7 @@
 <template>
   <el-card class="x-home-insurance-tab-big" :body-style="{ padding: '0px' }">
     <div class="x-home-insurance-tab-big-img">
-      <img src="@/assets/home/home-insurance-big.png" :alt="data.title" width="300" height="360" />
+      <img :src="data.url" :alt="data.title" width="300" height="360" />
     </div>
     <div class="x-home-insurance-tab-big-content">
       <div class="x-home-insurance-tab-big-header">{{ data.title }}</div>
