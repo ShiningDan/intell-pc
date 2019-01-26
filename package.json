@@ -13,9 +13,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.4.11",
+    "mockjs": "^1.0.1-beta3",
     "sanitize.css": "^8.0.0",
     "vue": "^2.5.17",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuescroll": "^4.9.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",

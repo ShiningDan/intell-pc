@@ -22,6 +22,7 @@ export default {
   color: #171717;
   text-align: center;
   vertical-align: middle;
+  margin-bottom: 20px;
   .x-home-recomm-title-bar {
     display: inline-block;
     width: 100px;
