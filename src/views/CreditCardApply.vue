@@ -120,14 +120,14 @@ export default {
       ]
     },
     showCard(cType) {
-      var cardCOUNT = 0
-      while (cardCOUNT < this.cards.length) {
-        if (cType === this.cards[cardCOUNT].value) {
-          this.cards[cardCOUNT].show = true
+      var cardCount = 0
+      while (cardCount < this.cards.length) {
+        if (cType === this.cards[cardCount].value) {
+          this.cards[cardCount].show = true
         } else {
-          this.cards[cardCOUNT].show = false
+          this.cards[cardCount].show = false
         }
-        cardCOUNT++
+        cardCount++
       }
     },
   },

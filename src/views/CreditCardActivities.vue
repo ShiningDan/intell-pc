@@ -3,8 +3,12 @@
     <div class="x-views-credit-activities-detail-title">信用卡>活动详情</div>
     <div class="x-views-credit-activities-title">【中信】看电影，最高立减15元</div>
     <div class="x-views-credit-activities-card-h">活动简介：</div>
-    <div class="x-views-credit-activities-introduce" v-for="item in details" :key="item.id">
-      {{ item }}
+    <div
+      class="x-views-credit-activities-introduce"
+      v-for="(detail, index) in details"
+      :key="index"
+    >
+      {{ detail }}
     </div>
     <div class="x-views-credit-activities-card-h">参加活动的信用卡：</div>
     <div class="x-views-credit-activities-card">
@@ -16,8 +20,8 @@
       </el-carousel>
     </div>
     <div class="x-views-credit-activities-card-h">活动细则：</div>
-    <div class="x-views-credit-activities-introduce" v-for="item in rules" :key="item.id">
-      {{ item }}
+    <div class="x-views-credit-activities-introduce" v-for="(rule, index) in rules" :key="index">
+      {{ rule }}
     </div>
   </div>
 </template>
@@ -27,18 +31,22 @@ export default {
     return {
       cards: [
         {
+          id: 1,
           title: '白金卡1',
           url: require('@/assets/credit/card1.png'),
         },
         {
+          id: 2,
           title: '白金卡2',
           url: require('@/assets/credit/card2.png'),
         },
         {
+          id: 3,
           title: '白金卡3',
           url: require('@/assets/credit/card3.png'),
         },
         {
+          id: 4,
           title: '白金卡4',
           url: require('@/assets/credit/card4.png'),
         },

@@ -12,23 +12,35 @@
       </div>
       <div class="x-views-credit-match-info-title">基本信息|专享特权</div>
       <div class="x-views-credit-match-info-left">
-        <div class="x-views-credit-match-info-key" v-for="item in infoTitle" :key="item.id">
+        <div class="x-views-credit-match-info-key" v-for="(item, index) in infoTitle" :key="index">
           {{ item }}
         </div>
       </div>
       <div class="x-views-credit-match-info-right">
-        <div class="x-views-credit-match-info-value" v-for="item in infoValue" :key="item.id">
+        <div
+          class="x-views-credit-match-info-value"
+          v-for="(item, index) in infoValue"
+          :key="index"
+        >
           {{ item }}
         </div>
       </div>
       <div class="x-views-credit-match-info-title">专享特权</div>
       <div class="x-views-credit-match-info-left">
-        <div class="x-views-credit-match-info-key" v-for="item in privilegeTitle" :key="item.id">
+        <div
+          class="x-views-credit-match-info-key"
+          v-for="(item, index) in privilegeTitle"
+          :key="index"
+        >
           {{ item }}
         </div>
       </div>
       <div class="x-views-credit-match-info-right">
-        <div class="x-views-credit-match-info-value" v-for="item in privilegeValue" :key="item.id">
+        <div
+          class="x-views-credit-match-info-value"
+          v-for="(item, index) in privilegeValue"
+          :key="index"
+        >
           {{ item }}
         </div>
       </div>
