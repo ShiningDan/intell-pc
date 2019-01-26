@@ -76,6 +76,7 @@
 </template>
 
 <script>
+import api from '@/common/lib/api.js'
 // @ is an alias to /src
 import VBanner from '@/components/banner/index.vue'
 import VHomeLoanForm from '@/components/home-loan-form/index.vue'
@@ -109,173 +110,178 @@ export default {
       loans: [],
       insuracnes: [],
       credits: [],
-      partners: [],
     }
   },
   mounted() {
-    this.init()
+    // this.init()
+    api.mockdata('/data/home').then(res => {
+      this.recommends = res.recommends
+      this.loans = res.loans
+      this.insuracnes = res.insuracnes
+      this.credits = res.credits
+    })
   },
-  methods: {
-    async init() {
-      const recommends = await this.getRecommends()
-      const loans = await this.getLoan()
-      const insuracnes = await this.getInsurance()
-      const credits = await this.getCredits()
-      const partners = await this.getPartners()
-      this.recommends = recommends
-      this.loans = loans
-      this.insuracnes = insuracnes
-      this.credits = credits
-      this.partners = partners
-    },
-    async getRecommends() {
-      return [
-        {
-          id: 1,
-          img: '@/assets/home/fff.png',
-          title: '驯龙炮手·崔斯塔娜',
-          content:
-            '想要比迅捷蟹更快造成伤害吗？\n急速射击会炮喷射半自动龙炎火球，\n把坏蛋都烤熟甚至烤焦。',
-        },
-        {
-          id: 2,
-          img: '@/assets/home/recomm.png',
-          title: '约德尔国队长·提莫',
-          content: '提莫回去默默地看了下每分钟的死亡次数，\n毅然接下了这个重担。',
-        },
-        {
-          id: 3,
-          img: '@/assets/home/recomm.png',
-          title: '大发明家·黑默丁格',
-          content: '由于大发明家黑默丁格头比较大的特征，\n被人们外号称作“大头”。',
-        },
-        {
-          id: 4,
-          img: '@/assets/home/recomm.png',
-          title: '邪恶小法师·维迦',
-          content:
-            '维迦的邪恶在于拥有超强的区域限制技能，\n让对手滞留于战场无法脱身，\n超高的AP输出让对手胆寒。',
-        },
-      ]
-    },
-    async getCredits() {
-      return [
-        {
-          id: 1,
-          img: '@/assets/home/recomm.png',
-          title: '苏宁易购联名卡',
-          content:
-            '白金卡，免年费，免版面费\n新客户核卡后60天内任意合格消费，获一年期苏宁SUPER VIP会员',
-        },
-        {
-          id: 2,
-          img: '@/assets/home/recomm.png',
-          title: '浦发腾讯联名卡',
-          content:
-            '白金卡，免年费\n新户核卡后6个自然月内使用微信支付累计享3倍积分，每月封顶20000积分',
-        },
-        {
-          id: 3,
-          img: '@/assets/home/recomm.png',
-          title: 'VISA白金卡简约版',
-          content: '白金卡，免年费\n指定五星级酒店自助餐买一赠一指定酒店免费双早/入住升级礼遇',
-        },
-      ]
-    },
-    async getLoan() {
-      return [
-        {
-          id: 1,
-          title: '房屋抵押消费贷款',
-          description: '批贷时间：3-7个工作日\n贷款期限：1-20年\n利率范围：4.75%起',
-          maxAmount: '房产值8-9成',
-        },
-        {
-          id: 2,
-          title: '工资贷',
-          description: '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
-          maxAmount: '50万',
-        },
-        {
-          id: 3,
-          title: '汽车抵押贷款',
-          description: '批贷时间：最快1小时\n贷款期限：1-2年\n利率范围：0.8%起',
-          maxAmount: '无上限',
-        },
-      ]
-    },
-    async getPartners() {
-      return [
-        {
-          id: 1,
-          title: '1',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 2,
-          title: '2',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 3,
-          title: '3',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 4,
-          title: '4',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 5,
-          title: '5',
-          url: require('@/assets/home/fff.png'),
-        },
-        {
-          id: 6,
-          title: '6',
-          url: require('@/assets/home/fff.png'),
-        },
-      ]
-    },
-    async getInsurance() {
-      return [
-        {
-          id: 1,
-          url: require('@/assets/home/home-insurance-big.png'),
-          title: '“乐游人生”境外旅行救援保险(尊贵版)',
-          subtitle: '全球医疗 24h救援 超值保障 天数自选 延误赔付',
-          description:
-            '紧急医疗转送 1,000,000、\n境外住院医疗费用 300,000、\n境外意外伤害保险责任 100,000',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 199,
-        },
-        {
-          id: 2,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 3,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '个人意外综合保险',
-          subtitle: '综合保障意外+医疗+伤残补助，最高可达100万',
-          description:
-            '个人人身意外伤害保险 50,000、附加意外伤害骨折保险 5,000、附加个人意外伤害医疗保险 5,000',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 399,
-        },
-      ]
-    },
-  },
+  // methods: {
+  //   async init() {
+  //     const recommends = await this.getRecommends()
+  //     const loans = await this.getLoan()
+  //     const insuracnes = await this.getInsurance()
+  //     const credits = await this.getCredits()
+  //     const partners = await this.getPartners()
+  //     this.recommends = recommends
+  //     this.loans = loans
+  //     this.insuracnes = insuracnes
+  //     this.credits = credits
+  //     this.partners = partners
+  //   },
+  //   async getRecommends() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         img: '@/assets/home/fff.png',
+  //         title: '驯龙炮手·崔斯塔娜',
+  //         content:
+  //           '想要比迅捷蟹更快造成伤害吗？\n急速射击会炮喷射半自动龙炎火球，\n把坏蛋都烤熟甚至烤焦。',
+  //       },
+  //       {
+  //         id: 2,
+  //         img: '@/assets/home/recomm.png',
+  //         title: '约德尔国队长·提莫',
+  //         content: '提莫回去默默地看了下每分钟的死亡次数，\n毅然接下了这个重担。',
+  //       },
+  //       {
+  //         id: 3,
+  //         img: '@/assets/home/recomm.png',
+  //         title: '大发明家·黑默丁格',
+  //         content: '由于大发明家黑默丁格头比较大的特征，\n被人们外号称作“大头”。',
+  //       },
+  //       {
+  //         id: 4,
+  //         img: '@/assets/home/recomm.png',
+  //         title: '邪恶小法师·维迦',
+  //         content:
+  //           '维迦的邪恶在于拥有超强的区域限制技能，\n让对手滞留于战场无法脱身，\n超高的AP输出让对手胆寒。',
+  //       },
+  //     ]
+  //   },
+  //   async getCredits() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         img: '@/assets/home/recomm.png',
+  //         title: '苏宁易购联名卡',
+  //         content:
+  //           '白金卡，免年费，免版面费\n新客户核卡后60天内任意合格消费，获一年期苏宁SUPER VIP会员',
+  //       },
+  //       {
+  //         id: 2,
+  //         img: '@/assets/home/recomm.png',
+  //         title: '浦发腾讯联名卡',
+  //         content:
+  //           '白金卡，免年费\n新户核卡后6个自然月内使用微信支付累计享3倍积分，每月封顶20000积分',
+  //       },
+  //       {
+  //         id: 3,
+  //         img: '@/assets/home/recomm.png',
+  //         title: 'VISA白金卡简约版',
+  //         content: '白金卡，免年费\n指定五星级酒店自助餐买一赠一指定酒店免费双早/入住升级礼遇',
+  //       },
+  //     ]
+  //   },
+  //   async getLoan() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         title: '房屋抵押消费贷款',
+  //         description: '批贷时间：3-7个工作日\n贷款期限：1-20年\n利率范围：4.75%起',
+  //         maxAmount: '房产值8-9成',
+  //       },
+  //       {
+  //         id: 2,
+  //         title: '工资贷',
+  //         description: '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
+  //         maxAmount: '50万',
+  //       },
+  //       {
+  //         id: 3,
+  //         title: '汽车抵押贷款',
+  //         description: '批贷时间：最快1小时\n贷款期限：1-2年\n利率范围：0.8%起',
+  //         maxAmount: '无上限',
+  //       },
+  //     ]
+  //   },
+  //   async getPartners() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         title: '1',
+  //         url: require('@/assets/home/fff.png'),
+  //       },
+  //       {
+  //         id: 2,
+  //         title: '2',
+  //         url: require('@/assets/home/fff.png'),
+  //       },
+  //       {
+  //         id: 3,
+  //         title: '3',
+  //         url: require('@/assets/home/fff.png'),
+  //       },
+  //       {
+  //         id: 4,
+  //         title: '4',
+  //         url: require('@/assets/home/fff.png'),
+  //       },
+  //       {
+  //         id: 5,
+  //         title: '5',
+  //         url: require('@/assets/home/fff.png'),
+  //       },
+  //       {
+  //         id: 6,
+  //         title: '6',
+  //         url: require('@/assets/home/fff.png'),
+  //       },
+  //     ]
+  //   },
+  //   async getInsurance() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         url: require('@/assets/home/home-insurance-big.png'),
+  //         title: '“乐游人生”境外旅行救援保险(尊贵版)',
+  //         subtitle: '全球医疗 24h救援 超值保障 天数自选 延误赔付',
+  //         description:
+  //           '紧急医疗转送 1,000,000、\n境外住院医疗费用 300,000、\n境外意外伤害保险责任 100,000',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 199,
+  //       },
+  //       {
+  //         id: 2,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 3,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '个人意外综合保险',
+  //         subtitle: '综合保障意外+医疗+伤残补助，最高可达100万',
+  //         description:
+  //           '个人人身意外伤害保险 50,000、附加意外伤害骨折保险 5,000、附加个人意外伤害医疗保险 5,000',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 399,
+  //       },
+  //     ]
+  //   },
+  // },
 }
 </script>
 

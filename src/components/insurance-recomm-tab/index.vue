@@ -24,7 +24,7 @@
         <span class="price">{{ data.price }}</span>
         元/月起
       </p>
-      <p>{{ data.content }}</p>
+      <p class="data-content">{{ data.content }}</p>
       <el-button>立即投保</el-button>
     </div>
   </el-card>
@@ -66,7 +66,7 @@ export default {
     transition: top 0.4s;
     height: 100%;
     text-align: center;
-    background-color: rgba(36, 21, 21, 0.5);
+    background-color: rgba(36, 21, 21, 0.6);
     color: #fff;
     p {
       width: 200px;
@@ -75,6 +75,14 @@ export default {
       &:first-child {
         margin-top: 70px;
       }
+    }
+    .data-content {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      line-height: 20px;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
     }
     .el-button {
       width: 160px;

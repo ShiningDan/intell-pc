@@ -1,26 +1,24 @@
 <template>
-  <vue-scroll @handle-scroll="handleScroll">
-    <div id="app">
-      <div class="app-header">
-        <v-header-top></v-header-top>
-        <v-header
-          :class="[isfixed ? 'x-header-container-fixed' : 'x-header-container-default']"
-        ></v-header>
+  <div id="app">
+    <div class="app-header">
+      <v-header-top></v-header-top>
+      <v-header
+        :class="[isfixed ? 'x-header-container-fixed' : 'x-header-container-default']"
+      ></v-header>
+    </div>
+    <div class="app-main"><router-view></router-view></div>
+    <div class="app-footer">
+      <div class="x-views-container-bg-light">
+        <div class="x-views-home-partner x-views-section">
+          <v-sub-title>合作机构</v-sub-title>
+          <v-partner :data="partners"></v-partner>
+        </div>
       </div>
-      <div class="app-main"><router-view></router-view></div>
-      <div class="app-footer">
-        <div class="x-views-container-bg-light">
-          <div class="x-views-home-partner x-views-section">
-            <v-sub-title>合作机构</v-sub-title>
-            <v-partner :data="partners"></v-partner>
-          </div>
-        </div>
-        <div class="x-views-container-bg-dark">
-          <div class="x-views-section"><v-footer></v-footer></div>
-        </div>
+      <div class="x-views-container-bg-dark">
+        <div class="x-views-section"><v-footer></v-footer></div>
       </div>
     </div>
-  </vue-scroll>
+  </div>
 </template>
 
 <script>
@@ -46,10 +44,16 @@ export default {
   },
   mounted() {
     this.init()
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    handleScroll(vertical) {
-      if (vertical.scrollTop >= 32) {
+    handleScroll() {
+      let scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop >= 32) {
         this.isfixed = true
       } else {
         this.isfixed = false
@@ -118,6 +122,10 @@ export default {
   }
   .app-main {
     padding: 0px;
+    background-color: $bg-primary;
+  }
+  .app-footer {
+    background-color: $bg-primary;
   }
 }
 </style>

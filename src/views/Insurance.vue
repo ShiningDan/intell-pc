@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import api from '@/common/lib/api.js'
 // @ is an alias to /src
 import VBanner from '@/components/banner/index.vue'
 import VInsuranceForm from '@/components/insurance-form/index.vue'
@@ -117,229 +118,236 @@ export default {
     }
   },
   mounted() {
-    this.init()
+    // this.init()
+    api.mockdata('/data/insurance').then(res => {
+      this.insurances = res.insurances
+      this.illnessInsurances = res.illnessInsurances
+      this.travelInsurances = res.travelInsurances
+      this.healthInsurances = res.healthInsurances
+      this.examples = res.examples
+    })
   },
-  methods: {
-    async init() {
-      const insurances = await this.getInsurances()
-      const illnessInsurances = await this.getIllnessInsurances()
-      const travelInsurances = await this.getTravelInsurances()
-      const healthInsurances = await this.getHealthInsurances()
-      const examples = await this.getExamples()
-      this.insurances = insurances
-      this.illnessInsurances = illnessInsurances
-      this.travelInsurances = travelInsurances
-      this.healthInsurances = healthInsurances
-      this.examples = examples
-    },
-    async getInsurances() {
-      return [
-        {
-          id: 1,
-          background: {
-            background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
-            // background:  "url('https://dummyimage.com/320x320/ccc/ccc')",
-          },
-          title: '乐享百万医疗保险',
-          content: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗。',
-          price: 166,
-        },
-        {
-          id: 2,
-          background: {
-            background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
-          },
-          title: '金诺人生重大疾病保险',
-          content: '百种重疾全面保障，五十种轻症三次赔付。',
-          price: 188,
-        },
-        {
-          id: 3,
-          background: {
-            background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
-          },
-          title: '个人意外综合保险',
-          content: '综合保障意外+医疗+伤残补助，最高可达100万。',
-          price: 199,
-        },
-        {
-          id: 4,
-          background: {
-            background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
-          },
-          title: '家政雇佣责任险',
-          content: '家政服务人员意外伤害及医疗费用赔偿。',
-          price: 298,
-        },
-      ]
-    },
-    async getIllnessInsurances() {
-      return [
-        {
-          id: 1,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 2,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 3,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 4,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-      ]
-    },
-    async getTravelInsurances() {
-      return [
-        {
-          id: 1,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 2,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 3,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 4,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-      ]
-    },
-    async getHealthInsurances() {
-      return [
-        {
-          id: 1,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 2,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 3,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-        {
-          id: 4,
-          url: require('@/assets/home/home-insurance-small.png'),
-          title: '乐享百万医疗保险',
-          subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
-          description:
-            '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
-          age: '30-65周岁',
-          timeLimit: '终身',
-          price: 299,
-        },
-      ]
-    },
-    async getExamples() {
-      return [
-        {
-          id: 1,
-          url: require('@/assets/insurance/fff.png'),
-          name: '刘先生',
-          age: '66',
-          description: '刘先生经过联达多维度性价比评估分析后,购买了弘康-哆啦A保。',
-          insuranceCost: 2999,
-          insuranceAmount: 300,
-        },
-        {
-          id: 2,
-          url: require('@/assets/insurance/fff.png'),
-          name: '刘先生',
-          age: '66',
-          description: '刘先生经过联达多维度性价比评估分析后,购买了弘康-哆啦A保。',
-          insuranceCost: 2999,
-          insuranceAmount: 300,
-        },
-      ]
-    },
-  },
+  // methods: {
+  //   async init() {
+  //     const insurances = await this.getInsurances()
+  //     const illnessInsurances = await this.getIllnessInsurances()
+  //     const travelInsurances = await this.getTravelInsurances()
+  //     const healthInsurances = await this.getHealthInsurances()
+  //     const examples = await this.getExamples()
+  //     this.insurances = insurances
+  //     this.illnessInsurances = illnessInsurances
+  //     this.travelInsurances = travelInsurances
+  //     this.healthInsurances = healthInsurances
+  //     this.examples = examples
+  //   },
+  //   async getInsurances() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         background: {
+  //           background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
+  //           // background:  "url('https://dummyimage.com/320x320/ccc/ccc')",
+  //         },
+  //         title: '乐享百万医疗保险',
+  //         content: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗。',
+  //         price: 166,
+  //       },
+  //       {
+  //         id: 2,
+  //         background: {
+  //           background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
+  //         },
+  //         title: '金诺人生重大疾病保险',
+  //         content: '百种重疾全面保障，五十种轻症三次赔付。',
+  //         price: 188,
+  //       },
+  //       {
+  //         id: 3,
+  //         background: {
+  //           background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
+  //         },
+  //         title: '个人意外综合保险',
+  //         content: '综合保障意外+医疗+伤残补助，最高可达100万。',
+  //         price: 199,
+  //       },
+  //       {
+  //         id: 4,
+  //         background: {
+  //           background: 'url(' + require('@/assets/insurance/ccc.png') + ')',
+  //         },
+  //         title: '家政雇佣责任险',
+  //         content: '家政服务人员意外伤害及医疗费用赔偿。',
+  //         price: 298,
+  //       },
+  //     ]
+  //   },
+  //   async getIllnessInsurances() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 2,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 3,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 4,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //     ]
+  //   },
+  //   async getTravelInsurances() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 2,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 3,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 4,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //     ]
+  //   },
+  //   async getHealthInsurances() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 2,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 3,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //       {
+  //         id: 4,
+  //         url: require('@/assets/home/home-insurance-small.png'),
+  //         title: '乐享百万医疗保险',
+  //         subtitle: '600万最高保障，涵盖88种重疾，重疾国内二次诊疗',
+  //         description:
+  //           '疾病住院医疗 限额100万/年、意外住院医疗 限额200万/年、重大疾病医疗 限额300万/年',
+  //         age: '30-65周岁',
+  //         timeLimit: '终身',
+  //         price: 299,
+  //       },
+  //     ]
+  //   },
+  //   async getExamples() {
+  //     return [
+  //       {
+  //         id: 1,
+  //         url: require('@/assets/insurance/fff.png'),
+  //         name: '刘先生',
+  //         age: '66',
+  //         description: '刘先生经过联达多维度性价比评估分析后,购买了弘康-哆啦A保。',
+  //         insuranceCost: 2999,
+  //         insuranceAmount: 300,
+  //       },
+  //       {
+  //         id: 2,
+  //         url: require('@/assets/insurance/fff.png'),
+  //         name: '刘先生',
+  //         age: '66',
+  //         description: '刘先生经过联达多维度性价比评估分析后,购买了弘康-哆啦A保。',
+  //         insuranceCost: 2999,
+  //         insuranceAmount: 300,
+  //       },
+  //     ]
+  //   },
+  // },
 }
 </script>
 
