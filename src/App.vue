@@ -105,6 +105,8 @@ export default {
 @import '@/common/_variable.scss';
 
 #app {
+  // width: 100%;
+  // margin: auto;
   background-color: $bg-primary;
   color: $text-primary;
   font-family: Circular, 'Hiragino Sans GB', '华文细黑', 'STHeiti', '微软雅黑', 'Microsoft YaHei',
