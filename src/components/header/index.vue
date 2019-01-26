@@ -55,6 +55,7 @@ export default {
   .x-header-logo {
     background-color: $theme-color;
     width: 200px;
+    height: 80px;
     float: left;
     color: #fff;
     cursor: pointer;

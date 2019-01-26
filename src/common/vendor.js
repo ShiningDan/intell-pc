@@ -20,6 +20,8 @@ import {
   CarouselItem,
   Select,
   Option,
+  Col,
+  Radio,
 } from 'element-ui'
 
 Vue.use(Container)
@@ -40,5 +42,7 @@ Vue.use(Carousel)
 Vue.use(CarouselItem)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Col)
+Vue.use(Radio)
 
 Vue.prototype.$notify = Notification
