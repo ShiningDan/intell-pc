@@ -12,14 +12,14 @@
         <el-input v-model="money" placeholder="请输入贷款金额"></el-input>
       </el-form-item>
       <el-form-item class="x-loan-form-item">
-        <el-col :span="14">
+        <el-col :span="12">
           <el-input
             class="x-loan-form-item-verifycode"
             v-model="verifycode"
             placeholder="请输入验证码"
           ></el-input>
         </el-col>
-        <el-col :span="14">
+        <el-col :span="12">
           <el-button class="x-loan-form-btn-verifycode">获取验证码</el-button>
         </el-col>
       </el-form-item>

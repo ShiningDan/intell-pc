@@ -301,14 +301,18 @@ export default {
 
 <style lang="scss" scoped>
 .x-views-loan-main {
+  width: 1366px;
+  padding-top: 20px;
+  background-color: #f8f8f8;
   .x-views-loan-banner {
-    width: 1366px;
+    width: 100%;
   }
   .x-views-loan-section {
     padding: 40px 0;
     margin: auto;
   }
   .x-views-loan-advantage {
+    width: 1366px;
     background-color: #fff;
     .x-views-loan-advantage-main {
       width: 1166px;
@@ -365,7 +369,8 @@ export default {
     }
   }
   .x-views-loan-statement {
-    width: 1366px;
+    width: 100%;
+    background-color: #f8f8f8;
     .x-views-loan-statement-content {
       margin-top: 20px;
       padding-left: 140px;

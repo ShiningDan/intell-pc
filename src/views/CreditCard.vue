@@ -3,7 +3,7 @@
     <v-banner class="x-views-credit-banner">
       <template slot="carousel">
         <el-carousel height="400px">
-          <el-carousel-item v-for="item in 4" :key="item" class="">
+          <el-carousel-item v-for="item in 4" :key="item">
             <div class="x-views-credit-banner-carousel-item">
               <h3>{{ item }}</h3>
             </div>
@@ -113,12 +113,13 @@ export default {
 
 <style lang="scss" scoped>
 .x-views-credit-main {
+  padding-top: 20px;
   .x-views-credit-banner {
     width: 100%;
   }
   .x-views-credit-adv {
     width: 100%;
-    // height: 340;
+    background-color: #fff;
     padding: 40px 0px 40px 0px;
   }
   .x-views-credit-discount {

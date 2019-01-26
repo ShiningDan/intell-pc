@@ -1,7 +1,7 @@
 <template>
   <el-card class="x-loan-adviser-tab" :body-style="{ padding: '0px' }">
     <div class="x-loan-adviser-tab-img">
-      <img src="@/assets/home/logo.png" :alt="data.title" width="120" height="160" />
+      <img src="@/assets/home/logo.png" :alt="data.title" width="90" height="110" />
     </div>
     <div class="x-loan-adviser-tab-content">
       <div class="x-loan-adviser-tab-content-name">{{ data.title }}</div>
@@ -39,24 +39,24 @@ export default {
 @import '@/common/_variable.scss';
 .x-loan-adviser-tab {
   width: 320px;
-  height: 180px;
+  height: 130px;
   position: relative;
   .x-loan-adviser-tab-img {
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 30px;
   }
   .x-loan-adviser-tab-content {
     position: absolute;
-    height: 180px;
+    height: 130px;
     width: 170px;
     top: 0;
     right: 0;
     .x-loan-adviser-tab-content-name {
-      height: 40px;
-      line-height: 40px;
+      height: 30px;
+      line-height: 30px;
       font-size: 18px;
-      margin-top: 20px;
+      margin-top: 10px;
       text-align: left;
     }
     .x-loan-adviser-tab-content-desc {
