@@ -32,5 +32,20 @@ export default new Router({
       name: 'creditCard',
       component: () => import(/* webpackChunkName: "about" */ './views/CreditCard.vue'),
     },
+    {
+      path: '/creditCardMatch',
+      name: 'creditCardMatch',
+      component: () => import(/* webpackChunkName: "about" */ './views/CreditCardMatch.vue'),
+    },
+    {
+      path: '/creditCardApply',
+      name: 'creditCardApply',
+      component: () => import(/* webpackChunkName: "about" */ './views/CreditCardApply.vue'),
+    },
+    {
+      path: '/creditCardActivities',
+      name: 'creditCardActivities',
+      component: () => import(/* webpackChunkName: "about" */ './views/CreditCardActivities.vue'),
+    },
   ],
 })

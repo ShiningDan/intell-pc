@@ -1,7 +1,7 @@
 <template>
   <el-card class="x-home-recomm-tab" :body-style="{ padding: '0px' }">
     <div class="x-home-recomm-tab-img">
-      <img :src="data.url" :alt="data.title" height="200" width="320" />
+      <img :src="data.img" :alt="data.title" height="200" width="320" />
     </div>
     <div class="x-home-recomm-tab-title">{{ data.title }}</div>
     <div class="x-home-recomm-tab-content">

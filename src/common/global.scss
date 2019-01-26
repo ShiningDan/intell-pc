@@ -89,3 +89,24 @@ hr {
     transform: scale(1);
   }
 }
+
+.x-views-container-bg-light {
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.1);
+}
+
+.x-views-container-bg-dark {
+  width: 100%;
+}
+
+.x-views-section {
+  padding: 40px 0;
+  width: 1366px;
+  margin: auto;
+}
+
+.x-views-main {
+  display: flex;
+  justify-content: space-between;
+}
