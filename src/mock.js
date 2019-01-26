@@ -135,3 +135,86 @@ for (let i = 0; i < 7; i++) {
 }
 
 Mock.mock('/data/insurance', 'post', insurance)
+
+/************** credit ***********/
+let credit = {
+  credits: [],
+}
+for (let i = 0; i < 9; i++) {
+  let template = {
+    id: credit.credits.length,
+    url: Random.dataImage('320x200', Random.color()),
+    title: Random.ctitle(),
+    content: Random.cparagraph(1, 3),
+  }
+  credit.credits.push(template)
+}
+
+Mock.mock('/data/credit', 'post', credit)
+
+/************** loan ***********/
+let loan = {
+  houseloans: [],
+  creditloans: [],
+  carloans: [],
+  advisers: [],
+}
+for (let i = 0; i < 5; i++) {
+  let template = {
+    id: loan.houseloans.length,
+    'maxAmount|1': ['房产值8-9成', '50万', '无上限', '1000万', '200万', '500万', '3000万'],
+    title: Random.ctitle(),
+    // 'description': Random.cparagraph(1, 3),
+    'description|1': [
+      '批贷时间：3-7个工作日\n贷款期限：1-20年\n利率范围：4.75%起',
+      '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
+      '批贷时间：最快1小时\n贷款期限：1-2年\n利率范围：0.8%起',
+      '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
+    ],
+  }
+  loan.houseloans.push(template)
+}
+for (let i = 0; i < 7; i++) {
+  let template = {
+    id: loan.creditloans.length,
+    'maxAmount|1': ['房产值8-9成', '50万', '无上限', '1000万', '200万', '500万', '3000万'],
+    title: Random.ctitle(),
+    // 'description': Random.cparagraph(1, 3),
+    'description|1': [
+      '批贷时间：3-7个工作日\n贷款期限：1-20年\n利率范围：4.75%起',
+      '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
+      '批贷时间：最快1小时\n贷款期限：1-2年\n利率范围：0.8%起',
+      '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
+    ],
+  }
+  loan.creditloans.push(template)
+}
+for (let i = 0; i < 4; i++) {
+  let template = {
+    id: loan.carloans.length,
+    'maxAmount|1': ['房产值8-9成', '50万', '无上限', '1000万', '200万', '500万', '3000万'],
+    title: Random.ctitle(),
+    // 'description': Random.cparagraph(1, 3),
+    'description|1': [
+      '批贷时间：3-7个工作日\n贷款期限：1-20年\n利率范围：4.75%起',
+      '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
+      '批贷时间：最快1小时\n贷款期限：1-2年\n利率范围：0.8%起',
+      '批贷时间：最快24小时\n贷款期限：1-5年\n利率范围：0.52%起',
+    ],
+  }
+  loan.carloans.push(template)
+}
+for (let i = 0; i < 4; i++) {
+  let template = {
+    id: loan.advisers.length,
+    title: Random.ctitle(3),
+    // 'description': Random.cparagraph(1, 3),
+    'a|100-1000': 1,
+    'b|1-10': 1,
+    content: function() {
+      return '咨询人数：' + this.a + '\n' + '从业时间：' + this.b + '年'
+    },
+  }
+  loan.advisers.push(template)
+}
+Mock.mock('/data/loan', 'post', loan)

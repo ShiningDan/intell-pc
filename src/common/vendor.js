@@ -24,6 +24,7 @@ import {
   RadioGroup,
   RadioButton,
   InputNumber,
+  Col,
 } from 'element-ui'
 
 Vue.use(Container)
@@ -48,5 +49,6 @@ Vue.use(Radio)
 Vue.use(RadioGroup)
 Vue.use(RadioButton)
 Vue.use(InputNumber)
+Vue.use(Col)
 
 Vue.prototype.$notify = Notification

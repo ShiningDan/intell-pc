@@ -12,8 +12,8 @@
       </el-form-item>
       <el-form-item label="您的性别">
         <el-radio-group v-model="form.sex">
-          <el-radio-button label="男"></el-radio-button>
-          <el-radio-button label="女"></el-radio-button>
+          <el-radio-button label="男" class="el-radio-sex"></el-radio-button>
+          <el-radio-button label="女" class="el-radio-sex"></el-radio-button>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="保险类型">
@@ -28,9 +28,9 @@
       </el-form-item>
       <el-form-item label="基本保额">
         <el-radio-group v-model="form.insuranceAmount" size="medium">
-          <el-radio-button label="10w"></el-radio-button>
-          <el-radio-button label="20w"></el-radio-button>
-          <el-radio-button label="30w"></el-radio-button>
+          <el-radio-button label="10万"></el-radio-button>
+          <el-radio-button label="20万"></el-radio-button>
+          <el-radio-button label="30万"></el-radio-button>
           <el-radio-button label="更多"></el-radio-button>
         </el-radio-group>
       </el-form-item>
@@ -84,10 +84,31 @@ export default {
       border-color: $theme-color;
       box-shadow: -1px 0 0 0 $theme-color;
     }
-    .el-radio-button--medium {
+    .el-radio-sex {
+      margin-left: 40px;
       .el-radio-button__inner {
-        padding: 12px 10px;
-        width: 50px;
+        padding: 0px;
+        text-align: center;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #dcdfe6;
+        border-radius: 4px;
+      }
+    }
+    .el-radio-button--medium {
+      margin-left: 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+      .el-radio-button__inner {
+        padding: 0px;
+        text-align: center;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #dcdfe6;
+        border-radius: 4px;
       }
     }
   }
