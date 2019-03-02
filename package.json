@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "yarn run serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --mode prod",
     "publish": "yarn run build && node util/upload.js",
     "lint": "vue-cli-service lint",
     "fmt": "vue-cli-service lint --fix",

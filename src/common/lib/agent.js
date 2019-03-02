@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const agent = axios.create({
   // 目前写死为 localhost，用上云主机后，需要动态设置
-  baseURL: 'http://localhost:7001',
+  baseURL: process.env.VUE_APP_API_HOST,
   withCredientials: true,
 })
 
