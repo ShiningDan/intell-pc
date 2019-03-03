@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev:zyc": "VUE_APP_API_HOST=http://10.128.218.180:7001 yarn run serve",
     "dev": "yarn run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --mode prod",
