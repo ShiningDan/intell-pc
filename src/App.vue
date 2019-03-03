@@ -30,6 +30,7 @@ import VPartner from '@/components/public/partner/index.vue'
 import VFooter from '@/components/public/footer/index.vue'
 import VSubTitle from '@/components/public/sub-title/index.vue'
 import VAsideNav from '@/components/public/aside-nav/index.vue'
+import agent from '@/common/lib/agent.js'
 
 export default {
   components: {
@@ -47,6 +48,7 @@ export default {
     }
   },
   mounted() {
+    agent.get('/alive').then(res => console.log(res, '~~~~~~~'))
     this.init()
     window.addEventListener('scroll', this.handleScroll)
   },
