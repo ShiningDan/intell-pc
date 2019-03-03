@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const agent = axios.create({
   // 目前写死为 localhost，用上云主机后，需要动态设置
-  baseURL: 'http://localhost:7001',
+  baseURL: 'https://www.easy-mock.com/mock/5c6a16f15e2b044611b5d1a2/myapp',
   withCredientials: true,
 })
 
@@ -10,7 +10,7 @@ agent.interceptors.response.use(
   async resp => {
     const data = resp.data
     // data.status === 0 为后端正确返回时约定好的表示正常返回的数值
-    if (data && data.status === 0) {
+    if (resp.status === 200) {
       return data.data
     } else {
       throw data
