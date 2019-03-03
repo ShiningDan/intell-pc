@@ -17,9 +17,6 @@ export default new Router({
     {
       path: '/loan',
       name: 'loan',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/Loan.vue'),
     },
     {
@@ -33,19 +30,29 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/CreditCard.vue'),
     },
     {
-      path: '/creditCardMatch',
-      name: 'creditCardMatch',
-      component: () => import(/* webpackChunkName: "about" */ './views/CreditCardMatch.vue'),
+      path: '/sign_in',
+      name: 'sign_in',
+      component: () => import(/* webpackChunkName: "about" */ './views/sign_in.vue'),
     },
     {
-      path: '/creditCardApply',
-      name: 'creditCardApply',
-      component: () => import(/* webpackChunkName: "about" */ './views/CreditCardApply.vue'),
+      path: '/register',
+      name: 'register',
+      component: () => import(/* webpackChunkName: "about" */ './views/register.vue'),
     },
     {
-      path: '/creditCardActivities',
-      name: 'creditCardActivities',
-      component: () => import(/* webpackChunkName: "about" */ './views/CreditCardActivities.vue'),
+      path: '/loan/:id',
+      name: 'loanID',
+      component: () => import(/* webpackChunkName: "about" */ './views/loan-tab.vue'),
+    },
+    {
+      path: '/insurance/:id',
+      name: 'insuranceID',
+      component: () => import(/* webpackChunkName: "about" */ './views/insurance-tab.vue'),
+    },
+    {
+      path: '/creditCard/:id',
+      name: 'creditCardID',
+      component: () => import(/* webpackChunkName: "about" */ './views/creditCard-tab.vue'),
     },
   ],
 })
