@@ -15,27 +15,44 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/Home.vue'),
     },
     {
-      path: '/dialog',
-      name: 'dialog',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/loan',
+      name: 'loan',
+      component: () => import(/* webpackChunkName: "about" */ './views/Loan.vue'),
     },
     {
-      path: '/message',
-      name: 'message',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/insurance',
+      name: 'insurance',
+      component: () => import(/* webpackChunkName: "about" */ './views/Insurance.vue'),
     },
     {
-      path: '/history',
-      name: 'history',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/creditCard',
+      name: 'creditCard',
+      component: () => import(/* webpackChunkName: "about" */ './views/CreditCard.vue'),
     },
     {
-      path: '/setting',
-      name: 'setting',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/sign_in',
+      name: 'sign_in',
+      component: () => import(/* webpackChunkName: "about" */ './views/sign_in.vue'),
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import(/* webpackChunkName: "about" */ './views/register.vue'),
+    },
+    {
+      path: '/loan/:id',
+      name: 'loanID',
+      component: () => import(/* webpackChunkName: "about" */ './views/loan-tab.vue'),
+    },
+    {
+      path: '/insurance/:id',
+      name: 'insuranceID',
+      component: () => import(/* webpackChunkName: "about" */ './views/insurance-tab.vue'),
+    },
+    {
+      path: '/creditCard/:id',
+      name: 'creditCardID',
+      component: () => import(/* webpackChunkName: "about" */ './views/creditCard-tab.vue'),
     },
   ],
 })
