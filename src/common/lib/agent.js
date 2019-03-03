@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const agent = axios.create({
   // 目前写死为 localhost，用上云主机后，需要动态设置
-  baseURL: 'https://www.easy-mock.com/mock/5c6a16f15e2b044611b5d1a2/myapp',
+  baseURL: process.env.VUE_APP_API_HOST,
   withCredientials: true,
 })
 
